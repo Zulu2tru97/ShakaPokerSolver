@@ -4,160 +4,25 @@
             return [];
         }
 
-        // Parse BetRivers Poker Hand History
-        // function parsePokerHand(text) {
-        //     const lines = text.split(/\r?\n/);
-        //     const hand = {
-        //         handId: '',
-        //         game: '',
-        //         stakes: '',
-        //         date: '',
-        //         table: '',
-        //         buttonSeat: '',
-        //         seats: [],
-        //         actions: [],
-        //         dealt: [],
-        //         board: [],
-        //         showdown: [],
-        //         summary: {},
-        //     };
-        //     let section = '';
-        //     for (let i = 0; i < lines.length; i++) {
-        //         const line = lines[i];
-        //         if (line.startsWith('BetRivers Poker Hand')) {
-        //             const m = line.match(/Hand #(\d+): ([^\(]+)\(([^)]+)\) - ([^\r\n]+)/);
-        //             if (m) {
-        //                 hand.handId = m[1];
-        //                 hand.game = m[2].trim();
-        //                 hand.stakes = m[3].trim();
-        //                 hand.date = m[4].trim();
-        //             }
-        //         } else if (line.startsWith('Table ID')) {
-        //             const m = line.match(/Table ID '([^']+)' (.+) Seat #(\d+) is the button/);
-        //             if (m) {
-        //                 hand.table = m[1];
-        //                 hand.buttonSeat = m[3];
-        //             }
-        //         } else if (line.startsWith('Seat ')) {
-        //             const m = line.match(/Seat (\d+): ([^(\[]+)(\[(hero)\])? \(([^)]+) in chips\)/);
-        //             if (m) {
-        //                 hand.seats.push({
-        //                     seat: m[1],
-        //                     name: m[2].trim(),
-        //                     chips: m[5],
-        //                     hero: !!m[4],
-        //                 });
-        //             }
-        //         } else if (line.startsWith('*** ')) {
-        //             section = line.replace(/\*/g, '').trim().toUpperCase();
-        //         } else if (section === 'HOLE CARDS' && line.startsWith('Dealt to')) {
-        //             const m = line.match(/Dealt to ([^\[]+) \[([^\]]+)\]/);
-        //             if (m) {
-        //                 hand.dealt.push({
-        //                     player: m[1].trim(),
-        //                     cards: m[2].split(' '),
-        //                 });
-        //             }
-        //         } else if (section === 'FLOP' && line.match(/\[.*\]/)) {
-        //             const m = line.match(/\[([^\]]+)\]/);
-        //             if (m) hand.board = m[1].split(' ');
-        //         } else if (section === 'TURN' && line.match(/\[.*\] \[([^\]]+)\]/)) {
-        //             const m = line.match(/\[.*\] \[([^\]]+)\]/);
-        //             if (m) hand.board.push(m[1]);
-        //         } else if (section === 'RIVER' && line.match(/\[.*\] \[([^\]]+)\]/)) {
-        //             const m = line.match(/\[.*\] \[([^\]]+)\]/);
-        //             if (m) hand.board.push(m[1]);
-        //         } else if (section === 'SHOWDOWN' && line.match(/shows? \[[^\]]+\]/)) {
-        //             const m = line.match(/([^:]+) shows? \[([^\]]+)\] for (.+)/);
-        //             if (m) {
-        //                 hand.showdown.push({
-        //                     player: m[1].trim(),
-        //                     cards: m[2].split(' '),
-        //                     result: m[3],
-        //                 });
-        //             }
-        //         } else if (section === 'SUMMARY' && line.startsWith('Board')) {
-        //             const m = line.match(/Board \[([^\]]+)\]/);
-        //             if (m) hand.summary.board = m[1].split(' ');
-        //         } else if (section === 'SUMMARY' && line.startsWith('Seat ')) {
-        //             // Example: Seat 2: StaticShak (small blind) showed [Js 9c] and won $0.19 with Two Pair: Queens and Sevens
-        //             const m = line.match(/Seat (\d+): ([^(]+)(\(([^)]+)\) )?(showed \[([^\]]+)\] and won \$([\d.]+) with (.+))?/);
-        //             if (m) {
-        //                 hand.summary[m[1]] = {
-        //                     name: m[2].trim(),
-        //                     position: m[4] || '',
-        //                     cards: m[6] ? m[6].split(' ') : [],
-        //                     won: m[7] ? m[7] : '',
-        //                     hand: m[8] ? m[8] : '',
-        //                 };
-        //             }
-        //         } else if (line.match(/posts small blind|posts big blind|calls|folds|checks|bets|raises/)) {
-        //             hand.actions.push(line);
-        //         }
-        //     }
-        //     return hand;
-        // }
+        
 
-        // document.getElementById('uploadForm').addEventListener('submit', function(e) {
-        //     e.preventDefault();
-        //     const fileInput = document.getElementById('fileInput');
-        //     const file = fileInput.files[0];
-        //     if (file && file.type === "text/plain") {
-        //         const reader = new FileReader();
-        //         reader.onload = function(event) {
-        //             const text = event.target.result;
-        //             const hand = parsePokerHand(text);
-        //             let output = '';
-        //             output += `<b>Hand #${hand.handId}</b> - ${hand.game} (${hand.stakes})<br>Date: ${hand.date}<br>`;
-        //             output += `<b>Table:</b> ${hand.table} (Button: Seat ${hand.buttonSeat})<br>`;
-        //             output += `<b>Players:</b><ul>` + hand.seats.map(s => `<li>${s.seat}: ${s.name} (${s.chips}${s.hero ? ' [hero]' : ''})</li>`).join('') + '</ul>';
-        //             output += `<b>Dealt Cards:</b><ul>` + hand.dealt.map(d => `<li>${d.player}: ${d.cards.join(' ')}</li>`).join('') + '</ul>';
-        //             output += `<b>Board:</b> ${hand.board.join(' ')}<br>`;
-        //             output += `<b>Actions:</b><ul>` + hand.actions.map(a => `<li>${a}</li>`).join('') + '</ul>';
-        //             if (hand.showdown.length > 0) {
-        //                 output += `<b>Showdown:</b><ul>` + hand.showdown.map(sd => `<li>${sd.player}: ${sd.cards.join(' ')} (${sd.result})</li>`).join('') + '</ul>';
-        //             }
-        //             if (hand.summary && hand.summary.board) {
-        //                 output += `<b>Summary Board:</b> ${hand.summary.board.join(' ')}<br>`;
-        //             }
-        //             output += `<b>Summary:</b><ul>`;
-        //             for (const seat in hand.summary) {
-        //                 if (!isNaN(seat)) {
-        //                     const s = hand.summary[seat];
-        //                     output += `<li>Seat ${seat}: ${s.name} ${s.position ? '(' + s.position + ')' : ''}`;
-        //                     if (s.cards && s.cards.length > 0) {
-        //                         output += ` showed [${s.cards.join(' ')}]`;
-        //                     }
-        //                     if (s.won) {
-        //                         output += ` and won $${s.won}`;
-        //                     }
-        //                     if (s.hand) {
-        //                         output += ` with ${s.hand}`;
-        //                     }
-        //                     output += `</li>`;
-        //                 }
-        //             }
-        //             output += '</ul>';
-        //             document.getElementById('fileContent').innerHTML = output;
-        //         };
-        //         reader.readAsText(file);
-        //     } else {
-        //         document.getElementById('fileContent').textContent = 'Please select a valid .txt file.';
-        //     }
-        // });
+// Global state for hands and index
+let pokerHands = [];
+let currentHandIndex = 0;
 
-        document.getElementById('fileInput').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (!file) return;
+document.getElementById('fileInput').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
 
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const text = event.target.result;
-                const hands = parsePokerHands(text);
-                displayHands(hands);
-            };
-            reader.readAsText(file);
-        });
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const text = event.target.result;
+        pokerHands = parsePokerHands(text);
+        currentHandIndex = 0;
+        displayHands();
+    };
+    reader.readAsText(file);
+});
 
         function parsePokerHands(text) {
             // Split hands by the separator line (--- or similar)
@@ -186,6 +51,31 @@
             while ((dealtMatch = dealtRegex.exec(handText)) !== null) {
                 dealt.push({ player: dealtMatch[1].trim(), cards: dealtMatch[2].trim() });
             }
+
+            // Extract player money from seat lines (e.g., "Seat 1: JohnDoe ($100 in chips)")
+            const playerMoney = {};
+            seatLines.forEach(line => {
+                const seatMatch = line.match(/^Seat \d+: ([^(]+) \(([^)]+) in chips\)/);
+                if (seatMatch) {
+                    const player = seatMatch[1].trim();
+                    // Remove $ and commas, parse as float
+                    const moneyStr = seatMatch[2].replace(/[$,]/g, '');
+                    const money = parseFloat(moneyStr);
+                    playerMoney[player] = isNaN(money) ? null : money;
+                }
+            });
+
+            // Build players object: { playerName: { cards, money } }
+            const players = {};
+            // Add money for all players from seat lines
+            Object.keys(playerMoney).forEach(player => {
+                players[player] = { cards: null, money: playerMoney[player] };
+            });
+            // Add cards for players who were dealt in
+            dealt.forEach(d => {
+                if (!players[d.player]) players[d.player] = { cards: d.cards, money: null };
+                else players[d.player].cards = d.cards;
+            });
 
             // Extract board cards
             const boardMatch = handText.match(/Board \[([^\]]+)\]/);
@@ -221,32 +111,52 @@
                 dealt,
                 board,
                 streets,
-                summary: summaryLines
+                summary: summaryLines,
+                players // new object: { playerName: { cards, money } }
             };
         }
 
-        function displayHands(hands) {
-            const output = document.getElementById('output');
-            output.innerHTML = '';
-            hands.forEach((hand, idx) => {
-                const div = document.createElement('div');
-                div.className = 'hand-block';
-                div.innerHTML = `
-            <h3>Hand #${hand.handId} (${hand.gameType})</h3>
-            <div><b>Date:</b> ${hand.date}</div>
-            <div><b>Seats:</b><br>${hand.seats.map(s => '&nbsp;&nbsp;' + s).join('<br>')}</div>
-            <div><b>Dealt:</b><br>${hand.dealt.map(d => `${d.player}: [${d.cards}]`).join('<br>')}</div>
-            <div><b>Board:</b> ${hand.board.join(' ')}</div>
-            <div><b>Actions:</b><br>
-                ${Object.entries(hand.streets).map(([street, acts]) =>
-                    `<b>${street}:</b><br>${acts.map(a => '&nbsp;&nbsp;' + a).join('<br>')}`
-                ).join('<br>')}
-            </div>
-            <div><b>Summary:</b><br>${hand.summary.join('<br>')}</div>
-            <hr>
-        `;
-                output.appendChild(div);
-            });
-        }
+
+// Display one hand at a time and include Next Hand button
+function displayHands() {
+    const output = document.getElementById('output');
+    output.innerHTML = '';
+    if (!pokerHands.length) {
+        output.textContent = 'No hands found.';
+        return;
+    }
+    const hand = pokerHands[currentHandIndex];
+    const div = document.createElement('div');
+    div.className = 'hand-block';
+    div.innerHTML = `
+        <h3>Hand #${hand.handId} (${hand.gameType})</h3>
+        <div><b>Date:</b> ${hand.date}</div>
+        <div><b>Seats:</b><br>${hand.seats.map(s => '&nbsp;&nbsp;' + s).join('<br>')}</div>
+        <div><b>Dealt:</b><br>${hand.dealt.map(d => `${d.player}: [${d.cards}]`).join('<br>')}</div>
+        <div><b>Board:</b> ${hand.board.join(' ')}</div>
+        <div><b>Actions:</b><br>
+            ${Object.entries(hand.streets).map(([street, acts]) =>
+                `<b>${street}:</b><br>${acts.map(a => '&nbsp;&nbsp;' + a).join('<br>')}`
+            ).join('<br>')}
+        </div>
+        <div><b>Summary:</b><br>${hand.summary.join('<br>')}</div>
+        <div style="margin-top:10px; text-align:right; color:#888; font-size:13px;">Hand ${currentHandIndex+1} of ${pokerHands.length}</div>
+        <button id="nextHandBtn" type="button" style="margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
+    `;
+    output.appendChild(div);
+
+    // Attach event listener for Next Hand button
+    const nextBtn = document.getElementById('nextHandBtn');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', goToNextHand);
+    }
+}
+
+function goToNextHand() {
+    if (currentHandIndex < pokerHands.length - 1) {
+        currentHandIndex++;
+        displayHands();
+    }
+}
 
         //
