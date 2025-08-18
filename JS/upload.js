@@ -9,6 +9,8 @@
 // Global state for hands and index
 let pokerHands = [];
 let currentHandIndex = 0;
+let currentStreetIndex = 0;
+const streetOrder = ['preflop', 'flop', 'turn', 'river', 'showdown'];
 
 document.getElementById('fileInput').addEventListener('change', function (e) {
     const file = e.target.files[0];
@@ -65,23 +67,54 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 }
             });
 
+            // Helper to parse cards string into array of {rank, suit}
+            function parseCardObjects(cardStr) {
+                if (!cardStr) return null;
+                // Split by space, e.g. "Ah Kd" => ["Ah", "Kd"]
+                return cardStr.split(' ').map(card => {
+                    // If card is 2 chars (e.g. Ah), rank=first, suit=second
+                    // If card is 3 chars (e.g. 10h), rank=first 1-2 chars, suit=last
+                    if (card.length === 2) {
+                        return { rank: card[0], suit: card[1] };
+                    } else if (card.length === 3) {
+                        return { rank: card.slice(0, card.length-1), suit: card[card.length-1] };
+                    } else {
+                        return null;
+                    }
+                }).filter(Boolean);
+            }
+
             // Build players object: { playerName: { cards, money } }
             const players = {};
             // Add money for all players from seat lines
             Object.keys(playerMoney).forEach(player => {
                 players[player] = { cards: null, money: playerMoney[player] };
             });
-            // Add cards for players who were dealt in
+            // Add cards for players who were dealt in, as array of {rank, suit}
             dealt.forEach(d => {
-                if (!players[d.player]) players[d.player] = { cards: d.cards, money: null };
-                else players[d.player].cards = d.cards;
+                if (!players[d.player]) players[d.player] = { cards: parseCardObjects(d.cards), money: null };
+                else players[d.player].cards = parseCardObjects(d.cards);
             });
 
-            // Extract board cards
-            const boardMatch = handText.match(/Board \[([^\]]+)\]/);
-            const board = boardMatch ? boardMatch[1].split(' ') : [];
+            // Helper to parse cards string into array of {rank, suit}
+            function parseCardObjects(cardStr) {
+                if (!cardStr) return null;
+                return cardStr.split(' ').map(card => {
+                    if (card.length === 2) {
+                        return { rank: card[0], suit: card[1] };
+                    } else if (card.length === 3) {
+                        return { rank: card.slice(0, card.length-1), suit: card[card.length-1] };
+                    } else {
+                        return null;
+                    }
+                }).filter(Boolean);
+            }
 
-            // Extract actions by street
+            // Extract board cards as objects
+            const boardMatch = handText.match(/Board \[([^\]]+)\]/);
+            const board = boardMatch ? parseCardObjects(boardMatch[1]) : [];
+
+            // Extract actions by street and break them down for scripting
             const streets = {};
             const streetNames = ['HOLE CARDS', 'FLOP', 'TURN', 'RIVER', 'SHOWDOWN', 'SUMMARY'];
             let currentStreet = null;
@@ -92,6 +125,29 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                     streets[currentStreet] = [];
                 } else if (currentStreet && line.trim() && !line.startsWith('Dealt to') && !line.startsWith('Board')) {
                     streets[currentStreet].push(line.trim());
+                }
+            });
+
+            // Scripted actions for Texas Hold'em: breakdown by street
+            // Map hand history street names to poker script stages
+            const streetMap = {
+                'HOLE CARDS': 'preflop',
+                'FLOP': 'flop',
+                'TURN': 'turn',
+                'RIVER': 'river',
+                'SHOWDOWN': 'showdown',
+            };
+            const scriptedActions = {
+                preflop: [],
+                flop: [],
+                turn: [],
+                river: [],
+                showdown: []
+            };
+            Object.entries(streets).forEach(([street, actions]) => {
+                const key = streetMap[street];
+                if (key) {
+                    scriptedActions[key] = actions.slice();
                 }
             });
 
@@ -109,10 +165,11 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 date,
                 seats,
                 dealt,
-                board,
+                board, // array of {rank, suit}
                 streets,
                 summary: summaryLines,
-                players // new object: { playerName: { cards, money } }
+                players, // new object: { playerName: { cards, money } }
+                scriptedActions // { preflop, flop, turn, river, showdown }
             };
         }
 
@@ -126,35 +183,86 @@ function displayHands() {
         return;
     }
     const hand = pokerHands[currentHandIndex];
+    // Display player info with cards as objects
+    const playerHtml = Object.entries(hand.players).map(([name, info]) => {
+        const cards = Array.isArray(info.cards) ? info.cards.map(c => `${c.rank}${c.suit}`).join(' ') : '';
+        return `${name}: <b>${cards}</b> ($${info.money !== null ? info.money : '?'})`;
+    }).join('<br>');
+
+    // Street navigation
+    const street = streetOrder[currentStreetIndex];
+    const streetLabel = street.charAt(0).toUpperCase() + street.slice(1);
+    const actions = hand.scriptedActions[street] || [];
+    const actionsHtml = actions.length ? actions.map(a => `&nbsp;&nbsp;${a}`).join('<br>') : '<i>No actions</i>';
+
+    // Board state for this street
+    let boardCards = [];
+    if (street === 'flop') {
+        boardCards = hand.board.slice(0, 3);
+    } else if (street === 'turn') {
+        boardCards = hand.board.slice(0, 4);
+    } else if (street === 'river' || street === 'showdown') {
+        boardCards = hand.board.slice(0, 5);
+    }
+    // Format board as string
+    const boardHtml = boardCards.length ? boardCards.map(c => `${c.rank}${c.suit}`).join(' ') : '<i>No board cards</i>';
+
     const div = document.createElement('div');
     div.className = 'hand-block';
     div.innerHTML = `
         <h3>Hand #${hand.handId} (${hand.gameType})</h3>
         <div><b>Date:</b> ${hand.date}</div>
-        <div><b>Seats:</b><br>${hand.seats.map(s => '&nbsp;&nbsp;' + s).join('<br>')}</div>
-        <div><b>Dealt:</b><br>${hand.dealt.map(d => `${d.player}: [${d.cards}]`).join('<br>')}</div>
-        <div><b>Board:</b> ${hand.board.join(' ')}</div>
-        <div><b>Actions:</b><br>
-            ${Object.entries(hand.streets).map(([street, acts]) =>
-                `<b>${street}:</b><br>${acts.map(a => '&nbsp;&nbsp;' + a).join('<br>')}`
-            ).join('<br>')}
+        <div><b>Players:</b><br>${playerHtml}</div>
+        <div style="margin:10px 0 5px 0;">
+            <button id="prevStreetBtn" type="button" ${currentStreetIndex === 0 ? 'disabled' : ''}>Previous Street</button>
+            <b style="margin:0 10px;">${streetLabel}</b>
+            <button id="nextStreetBtn" type="button" ${currentStreetIndex === streetOrder.length-1 ? 'disabled' : ''}>Next Street</button>
         </div>
-        <div><b>Summary:</b><br>${hand.summary.join('<br>')}</div>
+        <div><b>Board:</b> ${boardHtml}</div>
+        <div><b>Actions:</b><br>${actionsHtml}</div>
         <div style="margin-top:10px; text-align:right; color:#888; font-size:13px;">Hand ${currentHandIndex+1} of ${pokerHands.length}</div>
         <button id="nextHandBtn" type="button" style="margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
+        <button id="prevHandBtn" type="button" style="margin-top:15px; margin-left:10px;" ${currentHandIndex === 0 ? 'disabled' : ''}>Previous Hand</button>
     `;
     output.appendChild(div);
 
-    // Attach event listener for Next Hand button
+    // Attach event listeners for navigation
     const nextBtn = document.getElementById('nextHandBtn');
-    if (nextBtn) {
-        nextBtn.addEventListener('click', goToNextHand);
-    }
+    if (nextBtn) nextBtn.addEventListener('click', goToNextHand);
+    const prevBtn = document.getElementById('prevHandBtn');
+    if (prevBtn) prevBtn.addEventListener('click', goToPrevHand);
+    const nextStreetBtn = document.getElementById('nextStreetBtn');
+    if (nextStreetBtn) nextStreetBtn.addEventListener('click', goToNextStreet);
+    const prevStreetBtn = document.getElementById('prevStreetBtn');
+    if (prevStreetBtn) prevStreetBtn.addEventListener('click', goToPrevStreet);
 }
 
 function goToNextHand() {
     if (currentHandIndex < pokerHands.length - 1) {
         currentHandIndex++;
+        currentStreetIndex = 0;
+        displayHands();
+    }
+}
+
+function goToPrevHand() {
+    if (currentHandIndex > 0) {
+        currentHandIndex--;
+        currentStreetIndex = 0;
+        displayHands();
+    }
+}
+
+function goToNextStreet() {
+    if (currentStreetIndex < streetOrder.length - 1) {
+        currentStreetIndex++;
+        displayHands();
+    }
+}
+
+function goToPrevStreet() {
+    if (currentStreetIndex > 0) {
+        currentStreetIndex--;
         displayHands();
     }
 }
