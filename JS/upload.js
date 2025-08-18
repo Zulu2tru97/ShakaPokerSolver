@@ -96,9 +96,23 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 else players[d.player].cards = parseCardObjects(d.cards);
             });
 
-            // Extract board cards
+            // Helper to parse cards string into array of {rank, suit}
+            function parseCardObjects(cardStr) {
+                if (!cardStr) return null;
+                return cardStr.split(' ').map(card => {
+                    if (card.length === 2) {
+                        return { rank: card[0], suit: card[1] };
+                    } else if (card.length === 3) {
+                        return { rank: card.slice(0, card.length-1), suit: card[card.length-1] };
+                    } else {
+                        return null;
+                    }
+                }).filter(Boolean);
+            }
+
+            // Extract board cards as objects
             const boardMatch = handText.match(/Board \[([^\]]+)\]/);
-            const board = boardMatch ? boardMatch[1].split(' ') : [];
+            const board = boardMatch ? parseCardObjects(boardMatch[1]) : [];
 
             // Extract actions by street and break them down for scripting
             const streets = {};
@@ -151,7 +165,7 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 date,
                 seats,
                 dealt,
-                board,
+                board, // array of {rank, suit}
                 streets,
                 summary: summaryLines,
                 players, // new object: { playerName: { cards, money } }
@@ -181,18 +195,30 @@ function displayHands() {
     const actions = hand.scriptedActions[street] || [];
     const actionsHtml = actions.length ? actions.map(a => `&nbsp;&nbsp;${a}`).join('<br>') : '<i>No actions</i>';
 
+    // Board state for this street
+    let boardCards = [];
+    if (street === 'flop') {
+        boardCards = hand.board.slice(0, 3);
+    } else if (street === 'turn') {
+        boardCards = hand.board.slice(0, 4);
+    } else if (street === 'river' || street === 'showdown') {
+        boardCards = hand.board.slice(0, 5);
+    }
+    // Format board as string
+    const boardHtml = boardCards.length ? boardCards.map(c => `${c.rank}${c.suit}`).join(' ') : '<i>No board cards</i>';
+
     const div = document.createElement('div');
     div.className = 'hand-block';
     div.innerHTML = `
         <h3>Hand #${hand.handId} (${hand.gameType})</h3>
         <div><b>Date:</b> ${hand.date}</div>
         <div><b>Players:</b><br>${playerHtml}</div>
-        <div><b>Board:</b> ${hand.board.join(' ')}</div>
         <div style="margin:10px 0 5px 0;">
             <button id="prevStreetBtn" type="button" ${currentStreetIndex === 0 ? 'disabled' : ''}>Previous Street</button>
             <b style="margin:0 10px;">${streetLabel}</b>
             <button id="nextStreetBtn" type="button" ${currentStreetIndex === streetOrder.length-1 ? 'disabled' : ''}>Next Street</button>
         </div>
+        <div><b>Board:</b> ${boardHtml}</div>
         <div><b>Actions:</b><br>${actionsHtml}</div>
         <div style="margin-top:10px; text-align:right; color:#888; font-size:13px;">Hand ${currentHandIndex+1} of ${pokerHands.length}</div>
         <button id="nextHandBtn" type="button" style="margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
