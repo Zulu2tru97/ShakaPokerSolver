@@ -1,0 +1,48 @@
+BetRivers Poker Hand #9454057: Hold'em No Limit ($0.10/$0.20) - 2025/07/09 13:57 EDT
+Table ID '113455' 6-Max Seat #1 is the button
+Seat 1: Alistair U ($22.53 in chips)
+Seat 2: StaticShak ($19.02 in chips) [hero]
+Seat 3: Lane C ($20.00 in chips)
+Seat 4: Terry J ($23.92 in chips)
+Seat 5: Callan Z ($31.03 in chips)
+Seat 6: Vicente T ($28.46 in chips)
+StaticShak: posts small blind $0.10
+Lane C: posts big blind $0.20
+*** HOLE CARDS ***
+Dealt to StaticShak [Js 9c]
+Dealt to Lane C [6d 6h]
+Dealt to Callan Z [8h Ts]
+Terry J: folds 
+Callan Z: calls $0.20
+Vicente T: folds 
+Alistair U: folds 
+StaticShak: calls $0.10
+Lane C: checks 
+*** FLOP *** [7h Qs 7d]
+StaticShak: checks 
+Lane C: checks 
+Callan Z: checks 
+*** TURN *** [7h Qs 7d] [As]
+StaticShak: checks 
+Lane C: checks 
+Callan Z: checks 
+*** RIVER *** [7h Qs 7d As] [Qh]
+StaticShak: checks 
+Lane C: checks 
+Callan Z: checks 
+*** SHOWDOWN ***
+StaticShak shows [Js 9c] for Two Pair: Queens and Sevens
+Lane C shows [6d 6h] for Two Pair: Queens and Sevens
+Callan Z shows [8h Ts] for Two Pair: Queens and Sevens
+StaticShak collected $0.19 from pot
+Lane C collected $0.19 from pot
+Callan Z collected $0.19 from pot
+*** SUMMARY ***
+Total pot $0.60 | Rake $0.03
+Board [7h Qs 7d As Qh]
+Seat 1: Alistair U (button) folded before Flop
+Seat 2: StaticShak (small blind) showed [Js 9c] and won $0.19 with Two Pair: Queens and Sevens
+Seat 3: Lane C (big blind) showed [6d 6h] and won $0.19 with Two Pair: Queens and Sevens
+Seat 4: Terry J folded before Flop
+Seat 5: Callan Z showed [8h Ts] and won $0.19 with Two Pair: Queens and Sevens
+Seat 6: Vicente T folded before Flop
