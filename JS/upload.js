@@ -214,16 +214,16 @@ function displayHands() {
         <div><b>Date:</b> ${hand.date}</div>
         <div><b>Players:</b><br>${playerHtml}</div>
         <div style="margin:10px 0 5px 0;">
-            <button id="prevStreetBtn" type="button" ${currentStreetIndex === 0 ? 'disabled' : ''}>Previous Street</button>
+            <button id="prevStreetBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;" ${currentStreetIndex === 0 ? 'disabled' : ''}>Previous Street</button>
             <b style="margin:0 10px;">${streetLabel}</b>
-            <button id="nextStreetBtn" type="button" ${currentStreetIndex === streetOrder.length-1 ? 'disabled' : ''}>Next Street</button>
+            <button id="nextStreetBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;" ${currentStreetIndex === streetOrder.length-1 ? 'disabled' : ''}>Next Street</button>
         </div>
         <div><b>Board:</b> ${boardHtml}</div>
         <div><b>Actions:</b><br>${actionsHtml}</div>
         <canvas id="pokerCanvas" width="1000" height="500" style="margin:20px 0; border:1px solid #ccc; background:#0b4c0b; display:block;"></canvas>
         <div style="margin-top:10px; text-align:right; color:#888; font-size:13px;">Hand ${currentHandIndex+1} of ${pokerHands.length}</div>
-        <button id="nextHandBtn" type="button" style="margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
-        <button id="prevHandBtn" type="button" style="margin-top:15px; margin-left:10px;" ${currentHandIndex === 0 ? 'disabled' : ''}>Previous Hand</button>
+        <button id="nextHandBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
+        <button id="prevHandBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;margin-top:15px; margin-left:10px;" ${currentHandIndex === 0 ? 'disabled' : ''}>Previous Hand</button>
     `;
     output.appendChild(div);
 
@@ -239,7 +239,7 @@ function displayHands() {
 
     // Render poker table/cards on canvas
     renderPokerCanvas(hand, boardCards);
-
+ 
 // Draw cards, board, and players on canvas
 function renderPokerCanvas(hand, boardCards) {
     const canvas = document.getElementById('pokerCanvas');
@@ -252,71 +252,43 @@ function renderPokerCanvas(hand, boardCards) {
     ctx.strokeStyle = '#fff';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    // Make the table more circular (equal x/y radius)
-    ctx.ellipse(500, 250, 220, 220, 0, 0, 2 * Math.PI);
+    ctx.ellipse(350, 175, 320, 120, 0, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.restore();
 
     // Draw board cards (center)
-    const cardW = 60, cardH = 90;
-    // Place board cards in a gentle arc in the center
-    const boardRadius = 60;
-    const boardCenterX = 500, boardCenterY = 250;
-    const boardArcStart = -Math.PI/6, boardArcEnd = Math.PI/6;
-    const nBoard = boardCards.length;
+    const cardW = 32, cardH = 46;
+    const boardY = 140;
+    const boardStartX = 350 - (cardW * 2.5 + 5 * 2);
     boardCards.forEach((card, i) => {
-        let angle = boardArcStart + (boardArcEnd - boardArcStart) * (nBoard === 1 ? 0.5 : i/(nBoard-1));
-        let bx = boardCenterX + boardRadius * Math.cos(angle) - cardW/2;
-        let by = boardCenterY + boardRadius * Math.sin(angle) - cardH/2;
-        drawCard(ctx, bx, by, cardW, cardH, card);
+        drawCard(ctx, boardStartX + i * (cardW + 5), boardY, cardW, cardH, card);
     });
 
     // Draw players (around table, max 9)
     const playerNames = Object.keys(hand.players);
     const n = playerNames.length;
-    // Move players to the edge of the circular board
-    const radius = 220;
+    // Move players to the edge of the board (table)
+    const radius = 320; // match ellipse x-radius for edge
     playerNames.forEach((name, idx) => {
         const angle = (Math.PI * 2 * idx) / n - Math.PI / 2;
-        const px = 500 + radius * Math.cos(angle);
-        const py = 250 + radius * Math.sin(angle);
-        // Draw player name background and border
-        ctx.save();
-        ctx.font = 'bold 18px Arial';
-        ctx.textAlign = 'center';
-        const text = name;
-        const metrics = ctx.measureText(text);
-        const padX = 12, padY = 8;
-        const boxW = metrics.width + padX * 2;
-        const boxH = 32;
-        // Black background
-        ctx.fillStyle = '#111';
-        ctx.fillRect(px - boxW/2, py - boxH/2, boxW, boxH);
-        // Gold border
-        ctx.strokeStyle = '#ffd700';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(px - boxW/2, py - boxH/2, boxW, boxH);
+        const px = 350 + radius * Math.cos(angle);
+        const py = 175 + 120 * Math.sin(angle); // match ellipse y-radius for edge
         // Draw player name
+        ctx.save();
+        ctx.font = 'bold 15px Arial';
         ctx.fillStyle = '#fff';
-        ctx.fillText(text, px, py + 6);
+        ctx.textAlign = 'center';
+        ctx.fillText(name, px, py);
         // Draw money
-        ctx.font = '14px Arial';
+        ctx.font = '12px Arial';
         ctx.fillStyle = '#ffd700';
-        ctx.fillText('$' + (hand.players[name].money !== null ? hand.players[name].money : '?'), px, py + 22);
+        ctx.fillText('$' + (hand.players[name].money !== null ? hand.players[name].money : '?'), px, py + 16);
         ctx.restore();
         // Draw player cards (if any)
         const cards = hand.players[name].cards;
         if (Array.isArray(cards)) {
-            // Place cards just inside the table, angled toward the center
-            const cardRadius = radius - 60;
-            const cardAngle = angle;
             for (let c = 0; c < cards.length; c++) {
-                // Offset cards horizontally
-                const cardOffset = (c - (cards.length-1)/2) * (cardW + 8);
-                // Calculate card position
-                const cx = 500 + (cardRadius * Math.cos(cardAngle)) + cardOffset * Math.cos(cardAngle + Math.PI/2);
-                const cy = 250 + (cardRadius * Math.sin(cardAngle)) + cardOffset * Math.sin(cardAngle + Math.PI/2);
-                drawCard(ctx, cx - cardW/2, cy - cardH/2, cardW, cardH, cards[c]);
+                drawCard(ctx, px - cardW/2 + c * (cardW + 4) - (cards.length-1)*(cardW+4)/2, py + 22, cardW, cardH, cards[c]);
             }
         }
     });
@@ -332,13 +304,13 @@ function drawCard(ctx, x, y, w, h, card) {
     ctx.roundRect(x, y, w, h, 8);
     ctx.fill();
     ctx.stroke();
-    // Draw rank and suit
-    ctx.font = 'bold 18px Arial';
+    // Draw rank and suit (smaller)
+    ctx.font = 'bold 12px Arial';
     ctx.fillStyle = (card.suit === 'h' || card.suit === 'd') ? '#c00' : '#000';
     ctx.textAlign = 'left';
-    ctx.fillText(card.rank, x + 8, y + 24);
+    ctx.fillText(card.rank, x + 5, y + 16);
     ctx.textAlign = 'right';
-    ctx.fillText(renderSuit(card.suit), x + w - 8, y + 24);
+    ctx.fillText(renderSuit(card.suit), x + w - 5, y + 16);
     ctx.restore();
 }
 
