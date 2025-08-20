@@ -1,0 +1,1203 @@
+BetRivers Poker Hand #9324855: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:16 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 1: Avi Q ($5.00 in chips)
+Seat 2: Miller L ($31.34 in chips)
+Seat 5: Dangelo A ($12.50 in chips)
+Seat 6: StaticShak ($10.00 in chips) [hero]
+Dangelo A: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [3c 8h]
+Dealt to Avi Q [Ah 6d]
+Dealt to Miller L [Qd Tc]
+Avi Q: calls $0.10
+Miller L: raises $1.00 to $1.10
+Dangelo A: folds 
+StaticShak: folds 
+Avi Q: calls $1.00
+*** FLOP *** [Ac 5s Jc]
+Avi Q: bets $3.90 and is all-in
+Miller L: calls $3.90
+*** TURN *** [Ac 5s Jc] [Th]
+*** RIVER *** [Ac 5s Jc Th] [8d]
+*** SHOWDOWN ***
+Avi Q shows [Ah 6d] for One Pair: Aces
+Miller L shows [Qd Tc] for One Pair: Tens
+Avi Q collected $9.62 from pot
+*** SUMMARY ***
+Total pot $10.15 | Rake $0.53
+Board [Ac 5s Jc Th 8d]
+Seat 1: Avi Q showed [Ah 6d] and won $9.62 with One Pair: Aces
+Seat 2: Miller L (button) showed [Qd Tc] and lost with One Pair: Tens
+Seat 5: Dangelo A (small blind) folded before Flop
+Seat 6: StaticShak (big blind) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9324958: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:17 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 1: Avi Q ($9.62 in chips)
+Seat 2: Miller L ($26.34 in chips)
+Seat 5: Dangelo A ($12.45 in chips)
+Seat 6: StaticShak ($9.90 in chips) [hero]
+StaticShak: posts small blind $0.05
+Avi Q: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [2s 9c]
+Miller L: raises $0.70 to $0.80
+Dangelo A: folds 
+StaticShak: folds 
+Avi Q: folds 
+Uncalled bet ($0.70) returned to Miller L
+*** SHOWDOWN ***
+Miller L collected $0.25 from pot
+Miller L mucks hand
+*** SUMMARY ***
+Total pot $0.25 | Rake $0.00
+Seat 1: Avi Q (big blind) folded before Flop
+Seat 2: Miller L mucked hand and won $0.25
+Seat 5: Dangelo A (button) folded before Flop
+Seat 6: StaticShak (small blind) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9324990: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:17 EDT
+Table ID '111936' 6-Max Seat #6 is the button
+Seat 1: Avi Q ($9.52 in chips)
+Seat 2: Miller L ($26.49 in chips)
+Seat 5: Dangelo A ($12.45 in chips)
+Seat 6: StaticShak ($9.85 in chips) [hero]
+Avi Q: posts small blind $0.05
+Miller L: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [6h 7s]
+Dangelo A: folds 
+StaticShak: folds 
+Avi Q: folds 
+Uncalled bet ($0.05) returned to Miller L
+*** SHOWDOWN ***
+Miller L collected $0.10 from pot
+Miller L mucks hand
+*** SUMMARY ***
+Total pot $0.10 | Rake $0.00
+Seat 1: Avi Q (small blind) folded before Flop
+Seat 2: Miller L (big blind) mucked hand and won $0.10
+Seat 5: Dangelo A folded before Flop
+Seat 6: StaticShak (button) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325027: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:18 EDT
+Table ID '111936' 6-Max Seat #1 is the button
+Seat 1: Avi Q ($9.47 in chips)
+Seat 2: Miller L ($26.54 in chips)
+Seat 4: Grayson Z ($10.00 in chips)
+Seat 5: Dangelo A ($12.45 in chips)
+Seat 6: StaticShak ($9.85 in chips) [hero]
+Miller L: posts small blind $0.05
+Grayson Z: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [9s 6h]
+Dangelo A: folds 
+StaticShak: folds 
+Avi Q: folds 
+Miller L: calls $0.05
+Grayson Z: raises $0.20 to $0.30
+Miller L: calls $0.20
+*** FLOP *** [Ad Ac 4c]
+Miller L: checks 
+Grayson Z: checks 
+*** TURN *** [Ad Ac 4c] [2c]
+Miller L: bets $0.38
+Grayson Z: calls $0.38
+*** RIVER *** [Ad Ac 4c 2c] [Jh]
+Miller L: checks 
+Grayson Z: bets $1.29
+Miller L: raises $1.29 to $2.58
+Grayson Z: raises $6.74 to $9.32 and is all-in
+Miller L: folds 
+Uncalled bet ($6.74) returned to Grayson Z
+*** SHOWDOWN ***
+Grayson Z collected $6.18 from pot
+Grayson Z mucks hand
+*** SUMMARY ***
+Total pot $6.52 | Rake $0.34
+Board [Ad Ac 4c 2c Jh]
+Seat 1: Avi Q (button) folded before Flop
+Seat 2: Miller L (small blind) folded on the River
+Seat 4: Grayson Z (big blind) mucked hand and won $6.18
+Seat 5: Dangelo A folded before Flop
+Seat 6: StaticShak folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325146: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:19 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 1: Avi Q ($9.47 in chips)
+Seat 2: Miller L ($23.28 in chips)
+Seat 4: Grayson Z ($12.92 in chips)
+Seat 5: Dangelo A ($12.45 in chips)
+Seat 6: StaticShak ($9.85 in chips) [hero]
+Grayson Z: posts small blind $0.05
+Dangelo A: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Ah 2h]
+StaticShak: raises $0.10 to $0.20
+Avi Q: folds 
+Miller L: folds 
+Grayson Z: folds 
+Dangelo A: folds 
+Uncalled bet ($0.10) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $0.25 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $0.25 | Rake $0.00
+Seat 1: Avi Q folded before Flop
+Seat 2: Miller L (button) folded before Flop
+Seat 4: Grayson Z (small blind) folded before Flop
+Seat 5: Dangelo A (big blind) folded before Flop
+Seat 6: StaticShak mucked [Ah 2h] and won $0.25
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325174: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:20 EDT
+Table ID '111936' 6-Max Seat #4 is the button
+Seat 1: Avi Q ($9.47 in chips)
+Seat 2: Miller L ($23.28 in chips)
+Seat 4: Grayson Z ($12.87 in chips)
+Seat 5: Dangelo A ($12.35 in chips)
+Seat 6: StaticShak ($10.00 in chips) [hero]
+Dangelo A: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [5h 3d]
+Dealt to Miller L [5d 8h]
+Dealt to Grayson Z [Kh 6d]
+Avi Q: folds 
+Miller L: raises $0.10 to $0.20
+Grayson Z: calls $0.20
+Dangelo A: folds 
+StaticShak: folds 
+*** FLOP *** [6c 2s 4h]
+Miller L: bets $0.52
+Grayson Z: calls $0.52
+*** TURN *** [6c 2s 4h] [As]
+Miller L: checks 
+Grayson Z: checks 
+*** RIVER *** [6c 2s 4h As] [8d]
+Miller L: bets $1.01
+Grayson Z: calls $1.01
+*** SHOWDOWN ***
+Miller L shows [5d 8h] for One Pair: Eights
+Miller L collected $3.42 from pot
+Grayson Z mucks hand
+*** SUMMARY ***
+Total pot $3.61 | Rake $0.19
+Board [6c 2s 4h As 8d]
+Seat 1: Avi Q folded before Flop
+Seat 2: Miller L showed [5d 8h] and won $3.42 with One Pair: Eights
+Seat 4: Grayson Z (button) mucked [Kh 6d] and lost with One Pair: Sixes
+Seat 5: Dangelo A (small blind) folded before Flop
+Seat 6: StaticShak (big blind) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325267: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:21 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 1: Avi Q ($9.47 in chips)
+Seat 2: Miller L ($24.97 in chips)
+Seat 4: Grayson Z ($11.14 in chips)
+Seat 5: Dangelo A ($12.30 in chips)
+Seat 6: StaticShak ($9.90 in chips) [hero]
+StaticShak: posts small blind $0.05
+Avi Q: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [2c 5s]
+Miller L: raises $0.10 to $0.20
+Grayson Z: raises $0.30 to $0.50
+Dangelo A: calls $0.50
+StaticShak: calls $0.45
+Avi Q: calls $0.40
+Miller L: calls $0.30
+*** FLOP *** [6c 3h 8h]
+StaticShak: checks 
+Avi Q: checks 
+Miller L: checks 
+Grayson Z: bets $2.37
+Dangelo A: folds 
+StaticShak: folds 
+Avi Q: folds 
+Miller L: folds 
+Uncalled bet ($2.37) returned to Grayson Z
+*** SHOWDOWN ***
+Grayson Z collected $2.37 from pot
+Grayson Z mucks hand
+*** SUMMARY ***
+Total pot $2.50 | Rake $0.13
+Board [6c 3h 8h]
+Seat 1: Avi Q (big blind) folded on the Flop
+Seat 2: Miller L folded on the Flop
+Seat 4: Grayson Z mucked hand and won $2.37
+Seat 5: Dangelo A (button) folded on the Flop
+Seat 6: StaticShak (small blind) folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325381: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:22 EDT
+Table ID '111936' 6-Max Seat #6 is the button
+Seat 1: Avi Q ($8.97 in chips)
+Seat 2: Miller L ($24.47 in chips)
+Seat 4: Grayson Z ($13.01 in chips)
+Seat 5: Dangelo A ($11.80 in chips)
+Seat 6: StaticShak ($9.40 in chips) [hero]
+Avi Q: posts small blind $0.05
+Miller L: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [7s Ks]
+Grayson Z: raises $0.20 to $0.30
+Dangelo A: folds 
+StaticShak: raises $0.20 to $0.50
+Avi Q: folds 
+Miller L: folds 
+Grayson Z: calls $0.20
+*** FLOP *** [Kh 3h Td]
+Grayson Z: checks 
+StaticShak: bets $0.73
+Grayson Z: calls $0.73
+*** TURN *** [Kh 3h Td] [Kc]
+Grayson Z: checks 
+StaticShak: bets $2.47
+Grayson Z: calls $2.47
+*** RIVER *** [Kh 3h Td Kc] [2h]
+Grayson Z: checks 
+StaticShak: bets $4.76
+Grayson Z: folds 
+Uncalled bet ($4.76) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $7.15 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $7.55 | Rake $0.40
+Board [Kh 3h Td Kc 2h]
+Seat 1: Avi Q (small blind) folded before Flop
+Seat 2: Miller L (big blind) folded before Flop
+Seat 4: Grayson Z folded on the River
+Seat 5: Dangelo A folded before Flop
+Seat 6: StaticShak (button) mucked [7s Ks] and won $7.15
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325526: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:24 EDT
+Table ID '111936' 6-Max Seat #1 is the button
+Seat 1: Avi Q ($8.92 in chips)
+Seat 2: Miller L ($24.37 in chips)
+Seat 4: Grayson Z ($9.31 in chips)
+Seat 5: Dangelo A ($11.80 in chips)
+Seat 6: StaticShak ($12.85 in chips) [hero]
+Miller L: posts small blind $0.05
+Grayson Z: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [8h Jh]
+Dangelo A: calls $0.10
+StaticShak: raises $0.10 to $0.20
+Avi Q: folds 
+Miller L: raises $0.10 to $0.30
+Grayson Z: calls $0.20
+Dangelo A: calls $0.20
+StaticShak: calls $0.10
+*** FLOP *** [4s 5s Ah]
+Miller L: bets $0.76
+Grayson Z: calls $0.76
+Dangelo A: folds 
+StaticShak: folds 
+*** TURN *** [4s 5s Ah] [6s]
+Miller L: bets $1.72
+Grayson Z: folds 
+Uncalled bet ($1.72) returned to Miller L
+*** SHOWDOWN ***
+Miller L collected $2.58 from pot
+Miller L mucks hand
+*** SUMMARY ***
+Total pot $2.72 | Rake $0.14
+Board [4s 5s Ah 6s]
+Seat 1: Avi Q (button) folded before Flop
+Seat 2: Miller L (small blind) mucked hand and won $2.58
+Seat 4: Grayson Z (big blind) folded on the Turn
+Seat 5: Dangelo A folded on the Flop
+Seat 6: StaticShak folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325612: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:25 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 1: Avi Q ($8.92 in chips)
+Seat 2: Miller L ($25.89 in chips)
+Seat 4: Grayson Z ($8.25 in chips)
+Seat 5: Dangelo A ($11.50 in chips)
+Seat 6: StaticShak ($12.55 in chips) [hero]
+Grayson Z: posts small blind $0.05
+Dangelo A: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Ah 4c]
+StaticShak: raises $0.10 to $0.20
+Avi Q: calls $0.20
+Miller L: folds 
+Grayson Z: calls $0.15
+Dangelo A: calls $0.10
+*** FLOP *** [3s 8c Kd]
+Grayson Z: checks 
+Dangelo A: checks 
+StaticShak: checks 
+Avi Q: bets $0.76
+Grayson Z: folds 
+Dangelo A: folds 
+StaticShak: folds 
+Uncalled bet ($0.76) returned to Avi Q
+*** SHOWDOWN ***
+Avi Q collected $0.76 from pot
+Avi Q mucks hand
+*** SUMMARY ***
+Total pot $0.80 | Rake $0.04
+Board [3s 8c Kd]
+Seat 1: Avi Q mucked hand and won $0.76
+Seat 2: Miller L (button) folded before Flop
+Seat 4: Grayson Z (small blind) folded on the Flop
+Seat 5: Dangelo A (big blind) folded on the Flop
+Seat 6: StaticShak folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325698: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:26 EDT
+Table ID '111936' 6-Max Seat #4 is the button
+Seat 1: Avi Q ($9.48 in chips)
+Seat 2: Miller L ($25.89 in chips)
+Seat 4: Grayson Z ($8.05 in chips)
+Seat 5: Dangelo A ($11.30 in chips)
+Seat 6: StaticShak ($12.35 in chips) [hero]
+Dangelo A: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [5h 9h]
+Avi Q: folds 
+Miller L: folds 
+Grayson Z: raises $0.15 to $0.25
+Dangelo A: calls $0.20
+StaticShak: calls $0.15
+*** FLOP *** [Ad 4s Qs]
+Dangelo A: checks 
+StaticShak: checks 
+Grayson Z: checks 
+*** TURN *** [Ad 4s Qs] [2c]
+Dangelo A: checks 
+StaticShak: checks 
+Grayson Z: bets $0.47
+Dangelo A: raises $0.47 to $0.94
+StaticShak: folds 
+Grayson Z: folds 
+Uncalled bet ($0.47) returned to Dangelo A
+*** SHOWDOWN ***
+Dangelo A collected $1.60 from pot
+Dangelo A mucks hand
+*** SUMMARY ***
+Total pot $1.69 | Rake $0.09
+Board [Ad 4s Qs 2c]
+Seat 1: Avi Q folded before Flop
+Seat 2: Miller L folded before Flop
+Seat 4: Grayson Z (button) folded on the Turn
+Seat 5: Dangelo A (small blind) mucked hand and won $1.60
+Seat 6: StaticShak (big blind) folded on the Turn
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325799: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:27 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 1: Avi Q ($9.48 in chips)
+Seat 2: Miller L ($25.89 in chips)
+Seat 4: Grayson Z ($7.33 in chips)
+Seat 5: Dangelo A ($12.18 in chips)
+Seat 6: StaticShak ($12.10 in chips) [hero]
+StaticShak: posts small blind $0.05
+Avi Q: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [9s 5h]
+Dealt to Grayson Z [Qd Td]
+Dealt to Dangelo A [8s 8h]
+Miller L: calls $0.10
+Grayson Z: raises $0.20 to $0.30
+Dangelo A: raises $1.00 to $1.30
+StaticShak: folds 
+Avi Q: folds 
+Miller L has timed out
+Miller L: folds 
+Grayson Z: calls $1.00
+*** FLOP *** [5s Qc Ts]
+Grayson Z: checks 
+Dangelo A: bets $1.75
+Grayson Z: calls $1.75
+*** TURN *** [5s Qc Ts] [Js]
+Grayson Z: checks 
+Dangelo A: checks 
+*** RIVER *** [5s Qc Ts Js] [Kc]
+Grayson Z: checks 
+Dangelo A: bets $4.00
+Grayson Z: calls $4.00
+*** SHOWDOWN ***
+Grayson Z shows [Qd Td] for Two Pair: Queens and Tens
+Dangelo A shows [8s 8h] for One Pair: Eights
+Grayson Z collected $13.60 from pot
+*** SUMMARY ***
+Total pot $14.35 | Rake $0.75
+Board [5s Qc Ts Js Kc]
+Seat 1: Avi Q (big blind) folded before Flop
+Seat 2: Miller L folded before Flop
+Seat 4: Grayson Z showed [Qd Td] and won $13.60 with Two Pair: Queens and Tens
+Seat 5: Dangelo A (button) showed [8s 8h] and lost with One Pair: Eights
+Seat 6: StaticShak (small blind) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325871: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:29 EDT
+Table ID '111936' 6-Max Seat #6 is the button
+Seat 1: Avi Q ($9.38 in chips)
+Seat 2: Miller L ($25.79 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($13.88 in chips)
+Seat 5: Dangelo A ($5.13 in chips)
+Seat 6: StaticShak ($12.05 in chips) [hero]
+Avi Q: posts small blind $0.05
+Miller L: posts big blind $0.10
+Amelie R: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [3c 4h]
+Amelie R: raises $0.20 to $0.30
+Grayson Z: calls $0.30
+Dangelo A: raises $4.83 to $5.13 and is all-in
+StaticShak: folds 
+Avi Q: folds 
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: folds 
+Uncalled bet ($4.83) returned to Dangelo A
+*** SHOWDOWN ***
+Dangelo A collected $1.05 from pot
+Dangelo A mucks hand
+*** SUMMARY ***
+Total pot $1.05 | Rake $0.00
+Seat 1: Avi Q (small blind) folded before Flop
+Seat 2: Miller L (big blind) folded before Flop
+Seat 3: Amelie R folded before Flop
+Seat 4: Grayson Z folded before Flop
+Seat 5: Dangelo A mucked hand and won $1.05
+Seat 6: StaticShak (button) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9325950: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:30 EDT
+Table ID '111936' 6-Max Seat #1 is the button
+Seat 1: Avi Q ($9.33 in chips)
+Seat 2: Miller L ($25.69 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($13.58 in chips)
+Seat 5: Dangelo A ($5.88 in chips)
+Seat 6: StaticShak ($12.05 in chips) [hero]
+Miller L: posts small blind $0.05
+Amelie R: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Qd 5c]
+Grayson Z: folds 
+Dangelo A: folds 
+StaticShak: raises $0.10 to $0.20
+Avi Q: calls $0.20
+Miller L: raises $0.90 to $1.10
+Amelie R: calls $1.00
+StaticShak: calls $0.90
+Avi Q: calls $0.90
+*** FLOP *** [6s Jh 3d]
+Miller L: bets $2.78
+Amelie R: folds 
+StaticShak: folds 
+Avi Q: folds 
+Uncalled bet ($2.78) returned to Miller L
+*** SHOWDOWN ***
+Miller L collected $4.17 from pot
+Miller L mucks hand
+*** SUMMARY ***
+Total pot $4.40 | Rake $0.23
+Board [6s Jh 3d]
+Seat 1: Avi Q (button) folded on the Flop
+Seat 2: Miller L (small blind) mucked hand and won $4.17
+Seat 3: Amelie R (big blind) folded on the Flop
+Seat 4: Grayson Z folded before Flop
+Seat 5: Dangelo A folded before Flop
+Seat 6: StaticShak folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326059: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:31 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 1: Avi Q ($8.23 in chips)
+Seat 2: Miller L ($28.76 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($13.58 in chips)
+Seat 5: Dangelo A ($5.88 in chips)
+Seat 6: StaticShak ($10.95 in chips) [hero]
+Amelie R: posts small blind $0.05
+Grayson Z: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Qc Qs]
+Dangelo A: folds 
+StaticShak: raises $0.10 to $0.20
+Avi Q: calls $0.20
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: calls $0.10
+*** FLOP *** [Kd Jc 7h]
+Grayson Z: checks 
+StaticShak: checks 
+Avi Q: checks 
+*** TURN *** [Kd Jc 7h] [Qd]
+Grayson Z: bets $0.21
+StaticShak: raises $0.69 to $0.90
+Avi Q has timed out
+Avi Q: folds 
+Grayson Z: calls $0.69
+*** RIVER *** [Kd Jc 7h Qd] [Kc]
+Grayson Z: checks 
+StaticShak: bets $2.32
+Grayson Z: folds 
+Uncalled bet ($2.32) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $2.32 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $2.45 | Rake $0.13
+Board [Kd Jc 7h Qd Kc]
+Seat 1: Avi Q folded on the Turn
+Seat 2: Miller L (button) folded before Flop
+Seat 3: Amelie R (small blind) folded before Flop
+Seat 4: Grayson Z (big blind) folded on the River
+Seat 5: Dangelo A folded before Flop
+Seat 6: StaticShak mucked [Qc Qs] and won $2.32
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326220: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:33 EDT
+Table ID '111936' 6-Max Seat #3 is the button
+Seat 1: Avi Q ($8.03 in chips)
+Seat 2: Miller L ($28.76 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($12.48 in chips)
+Seat 5: Dangelo A ($5.88 in chips)
+Seat 6: StaticShak ($12.17 in chips) [hero]
+Grayson Z: posts small blind $0.05
+Dangelo A: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to Grayson Z [Td 8d]
+Dealt to Dangelo A [Ac 9d]
+Dealt to StaticShak [5d Qs]
+Dealt to Avi Q [6h 6c]
+StaticShak: calls $0.10
+Avi Q: calls $0.10
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: calls $0.05
+Dangelo A: checks 
+*** FLOP *** [7d 9h 2s]
+Grayson Z: checks 
+Dangelo A: checks 
+StaticShak: checks 
+Avi Q has timed out
+Avi Q: checks 
+*** TURN *** [7d 9h 2s] [Ks]
+Grayson Z: checks 
+Dangelo A: checks 
+StaticShak: checks 
+Avi Q: checks 
+*** RIVER *** [7d 9h 2s Ks] [Qd]
+Grayson Z: checks 
+Dangelo A: checks 
+StaticShak: checks 
+Avi Q has timed out
+Avi Q: checks 
+*** SHOWDOWN ***
+Grayson Z shows [Td 8d] for High Card: King
+StaticShak shows [5d Qs] for One Pair: Queens
+StaticShak collected $0.38 from pot
+Dangelo A mucks hand
+Avi Q mucks hand
+*** SUMMARY ***
+Total pot $0.40 | Rake $0.02
+Board [7d 9h 2s Ks Qd]
+Seat 1: Avi Q mucked [6h 6c] and lost with One Pair: Sixes
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R (button) folded before Flop
+Seat 4: Grayson Z (small blind) showed [Td 8d] and lost with High Card: King
+Seat 5: Dangelo A (big blind) mucked [Ac 9d] and lost with One Pair: Nines
+Seat 6: StaticShak showed [5d Qs] and won $0.38 with One Pair: Queens
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326502: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:37 EDT
+Table ID '111936' 6-Max Seat #3 is the button
+Seat 2: Miller L ($28.81 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($13.03 in chips)
+Seat 5: StaticShak ($10.00 in chips) [hero]
+Grayson Z: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Ac Kh]
+Miller L has timed out
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: calls $0.05
+StaticShak: raises $0.10 to $0.20
+Grayson Z: calls $0.10
+*** FLOP *** [3d 9h 4s]
+Grayson Z: checks 
+StaticShak: bets $0.38
+Grayson Z: calls $0.38
+*** TURN *** [3d 9h 4s] [6h]
+Grayson Z: checks 
+StaticShak: checks 
+*** RIVER *** [3d 9h 4s 6h] [Tc]
+Grayson Z: bets $0.37
+StaticShak: raises $1.23 to $1.60
+Grayson Z: folds 
+Uncalled bet ($1.23) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $1.80 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $1.90 | Rake $0.10
+Board [3d 9h 4s 6h Tc]
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R (button) folded before Flop
+Seat 4: Grayson Z (small blind) folded on the River
+Seat 5: StaticShak (big blind) mucked [Ac Kh] and won $1.80
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326605: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:38 EDT
+Table ID '111936' 6-Max Seat #4 is the button
+Seat 2: Miller L ($28.81 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($12.08 in chips)
+Seat 5: StaticShak ($10.85 in chips) [hero]
+Seat 6: Saint Y ($10.00 in chips)
+StaticShak: posts small blind $0.05
+Saint Y: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Jh 2c]
+Miller L: raises $1.40 to $1.50
+Amelie R: folds 
+Grayson Z: folds 
+StaticShak: folds 
+Saint Y: folds 
+Uncalled bet ($1.40) returned to Miller L
+*** SHOWDOWN ***
+Miller L collected $0.25 from pot
+Miller L mucks hand
+*** SUMMARY ***
+Total pot $0.25 | Rake $0.00
+Seat 2: Miller L mucked hand and won $0.25
+Seat 3: Amelie R folded before Flop
+Seat 4: Grayson Z (button) folded before Flop
+Seat 5: StaticShak (small blind) folded before Flop
+Seat 6: Saint Y (big blind) folded before Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326610: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:38 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 2: Miller L ($28.96 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($12.08 in chips)
+Seat 5: StaticShak ($10.80 in chips) [hero]
+Seat 6: Saint Y ($9.90 in chips)
+Saint Y: posts small blind $0.05
+Miller L: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to Miller L [4c 5c]
+Dealt to StaticShak [Js 5s]
+Amelie R: calls $0.10
+Grayson Z: raises $0.20 to $0.30
+StaticShak: raises $0.20 to $0.50
+Saint Y: calls $0.45
+Miller L: raises $0.20 to $0.70
+Amelie R: calls $0.60
+Grayson Z: folds 
+StaticShak: calls $0.20
+Saint Y: calls $0.20
+*** FLOP *** [9h 6d 8s]
+Saint Y: checks 
+Miller L: bets $2.94
+Amelie R: folds 
+StaticShak: calls $2.94
+Saint Y: folds 
+*** TURN *** [9h 6d 8s] [2h]
+Miller L: checks 
+StaticShak: checks 
+*** RIVER *** [9h 6d 8s 2h] [8h]
+Miller L: checks 
+StaticShak: checks 
+*** SHOWDOWN ***
+Miller L shows [4c 5c] for One Pair: Eights
+StaticShak shows [Js 5s] for One Pair: Eights
+StaticShak collected $8.51 from pot
+*** SUMMARY ***
+Total pot $8.98 | Rake $0.47
+Board [9h 6d 8s 2h 8h]
+Seat 2: Miller L (big blind) showed [4c 5c] and lost with One Pair: Eights
+Seat 3: Amelie R folded on the Flop
+Seat 4: Grayson Z folded before Flop
+Seat 5: StaticShak (button) showed [Js 5s] and won $8.51 with One Pair: Eights
+Seat 6: Saint Y (small blind) folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326672: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:39 EDT
+Table ID '111936' 6-Max Seat #6 is the button
+Seat 2: Miller L ($25.32 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.78 in chips)
+Seat 5: StaticShak ($15.67 in chips) [hero]
+Seat 6: Saint Y ($9.20 in chips)
+Miller L: posts small blind $0.05
+Amelie R: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [4d 7h]
+Grayson Z: calls $0.10
+StaticShak: folds 
+Saint Y: calls $0.10
+Miller L has timed out
+Miller L: folds 
+Amelie R: checks 
+*** FLOP *** [6d Kc Th]
+Amelie R: checks 
+Grayson Z: checks 
+Saint Y: bets $0.10
+Amelie R: calls $0.10
+Grayson Z: calls $0.10
+*** TURN *** [6d Kc Th] [4c]
+Amelie R: checks 
+Grayson Z: checks 
+Saint Y: bets $0.10
+Amelie R: folds 
+Grayson Z: calls $0.10
+*** RIVER *** [6d Kc Th 4c] [Kd]
+Grayson Z: checks 
+Saint Y: bets $0.10
+Grayson Z: folds 
+Uncalled bet ($0.10) returned to Saint Y
+*** SHOWDOWN ***
+Saint Y collected $0.81 from pot
+Saint Y mucks hand
+*** SUMMARY ***
+Total pot $0.85 | Rake $0.04
+Board [6d Kc Th 4c Kd]
+Seat 2: Miller L (small blind) folded before Flop
+Seat 3: Amelie R (big blind) folded on the Turn
+Seat 4: Grayson Z folded on the River
+Seat 5: StaticShak folded before Flop
+Seat 6: Saint Y (button) mucked hand and won $0.81
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326804: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:41 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 2: Miller L ($25.27 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.48 in chips)
+Seat 5: StaticShak ($15.67 in chips) [hero]
+Seat 6: Saint Y ($9.71 in chips)
+Amelie R: posts small blind $0.05
+Grayson Z: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [9d 2h]
+Dealt to Saint Y [Qd Ad]
+Dealt to Miller L [7c Js]
+StaticShak: folds 
+Saint Y: raises $0.10 to $0.20
+Miller L: raises $0.10 to $0.30
+Amelie R: calls $0.25
+Grayson Z: folds 
+Saint Y: calls $0.10
+*** FLOP *** [4h Jd Kd]
+Amelie R: checks 
+Saint Y: bets $0.10
+Miller L: raises $1.15 to $1.25
+Amelie R: calls $1.25
+Saint Y: raises $1.15 to $2.40
+Miller L: calls $1.15
+Amelie R: calls $1.15
+*** TURN *** [4h Jd Kd] [Kh]
+Amelie R: checks 
+Saint Y: bets $0.10
+Miller L: raises $5.31 to $5.41
+Amelie R: folds 
+Saint Y: raises $1.60 to $7.01 and is all-in
+Miller L: calls $1.60
+*** RIVER *** [4h Jd Kd Kh] [3s]
+*** SHOWDOWN ***
+Saint Y shows [Qd Ad] for One Pair: Kings
+Miller L shows [7c Js] for Two Pair: Kings and Jacks
+Miller L collected $21.05 from pot
+*** SUMMARY ***
+Total pot $22.22 | Rake $1.17
+Board [4h Jd Kd Kh 3s]
+Seat 2: Miller L (button) showed [7c Js] and won $21.05 with Two Pair: Kings and Jacks
+Seat 3: Amelie R (small blind) folded on the Turn
+Seat 4: Grayson Z (big blind) folded before Flop
+Seat 5: StaticShak folded before Flop
+Seat 6: Saint Y showed [Qd Ad] and lost with One Pair: Kings
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9326943: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:42 EDT
+Table ID '111936' 6-Max Seat #3 is the button
+Seat 2: Miller L ($36.61 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.38 in chips)
+Seat 5: StaticShak ($15.67 in chips) [hero]
+Seat 6: Saint Y ($10.00 in chips)
+Grayson Z: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [3d 3s]
+Dealt to Saint Y [Qd Ah]
+Saint Y: raises $0.10 to $0.20
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: folds 
+StaticShak: calls $0.10
+*** FLOP *** [Js 8s Qc]
+StaticShak: checks 
+Saint Y: bets $0.10
+StaticShak: calls $0.10
+*** TURN *** [Js 8s Qc] [6h]
+StaticShak: checks 
+Saint Y: bets $0.10
+StaticShak: calls $0.10
+*** RIVER *** [Js 8s Qc 6h] [9s]
+StaticShak: checks 
+Saint Y: bets $0.10
+StaticShak: calls $0.10
+*** SHOWDOWN ***
+Saint Y shows [Qd Ah] for One Pair: Queens
+Saint Y collected $0.99 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $1.05 | Rake $0.06
+Board [Js 8s Qc 6h 9s]
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R (button) folded before Flop
+Seat 4: Grayson Z (small blind) folded before Flop
+Seat 5: StaticShak (big blind) mucked [3d 3s] and lost with One Pair: Threes
+Seat 6: Saint Y showed [Qd Ah] and won $0.99 with One Pair: Queens
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327018: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:43 EDT
+Table ID '111936' 6-Max Seat #4 is the button
+Seat 2: Miller L ($36.61 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.33 in chips)
+Seat 5: StaticShak ($15.17 in chips) [hero]
+Seat 6: Saint Y ($10.49 in chips)
+StaticShak: posts small blind $0.05
+Saint Y: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Tc 7c]
+Miller L: folds 
+Amelie R: calls $0.10
+Grayson Z: folds 
+StaticShak: calls $0.05
+Saint Y: checks 
+*** FLOP *** [3d 3h 3s]
+StaticShak: checks 
+Saint Y: checks 
+Amelie R: checks 
+*** TURN *** [3d 3h 3s] [As]
+StaticShak: bets $0.19
+Saint Y: folds 
+Amelie R: folds 
+Uncalled bet ($0.19) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $0.28 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $0.30 | Rake $0.02
+Board [3d 3h 3s As]
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R folded on the Turn
+Seat 4: Grayson Z (button) folded before Flop
+Seat 5: StaticShak (small blind) mucked [Tc 7c] and won $0.28
+Seat 6: Saint Y (big blind) folded on the Turn
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327090: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:44 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 1: Avi Q ($7.83 in chips)
+Seat 2: Miller L ($36.61 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.33 in chips)
+Seat 5: StaticShak ($15.35 in chips) [hero]
+Seat 6: Saint Y ($10.39 in chips)
+Saint Y: posts small blind $0.05
+Avi Q: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [6c 2c]
+Miller L: folds 
+Amelie R: calls $0.10
+Grayson Z: calls $0.10
+StaticShak: calls $0.10
+Saint Y: calls $0.05
+Avi Q has timed out
+Avi Q: checks 
+*** FLOP *** [Qs Jc 9d]
+Saint Y: checks 
+Avi Q has timed out
+Avi Q: checks 
+Amelie R: checks 
+Grayson Z: checks 
+StaticShak has timed out
+StaticShak: checks 
+*** TURN *** [Qs Jc 9d] [Ts]
+Saint Y: checks 
+Avi Q has timed out
+Avi Q: checks 
+Amelie R: checks 
+Grayson Z: bets $0.10
+StaticShak: folds 
+Saint Y: calls $0.10
+Avi Q has timed out
+Avi Q: folds 
+Amelie R: folds 
+*** RIVER *** [Qs Jc 9d Ts] [Td]
+Saint Y: bets $0.10
+Grayson Z: raises $0.57 to $0.67
+Saint Y: folds 
+Uncalled bet ($0.57) returned to Grayson Z
+*** SHOWDOWN ***
+Grayson Z collected $0.85 from pot
+Grayson Z mucks hand
+*** SUMMARY ***
+Total pot $0.90 | Rake $0.05
+Board [Qs Jc 9d Ts Td]
+Seat 1: Avi Q (big blind) folded on the Turn
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R folded on the Turn
+Seat 4: Grayson Z mucked hand and won $0.85
+Seat 5: StaticShak (button) folded on the Turn
+Seat 6: Saint Y (small blind) folded on the River
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327300: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:47 EDT
+Table ID '111936' 6-Max Seat #6 is the button
+Seat 2: Miller L ($36.61 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.88 in chips)
+Seat 5: StaticShak ($15.25 in chips) [hero]
+Seat 6: Saint Y ($10.09 in chips)
+Miller L: posts small blind $0.05
+Amelie R: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to Amelie R [4d Qc]
+Dealt to StaticShak [6h Js]
+Dealt to Saint Y [9c 2c]
+Grayson Z: folds 
+StaticShak: folds 
+Saint Y: calls $0.10
+Miller L: folds 
+Amelie R: checks 
+*** FLOP *** [6d 3s 8h]
+Amelie R: checks 
+Saint Y: checks 
+*** TURN *** [6d 3s 8h] [6c]
+Amelie R: checks 
+Saint Y: checks 
+*** RIVER *** [6d 3s 8h 6c] [2h]
+Amelie R: checks 
+Saint Y: checks 
+*** SHOWDOWN ***
+Amelie R shows [4d Qc] for One Pair: Sixes
+Saint Y shows [9c 2c] for Two Pair: Sixes and Twos
+Saint Y collected $0.24 from pot
+*** SUMMARY ***
+Total pot $0.25 | Rake $0.01
+Board [6d 3s 8h 6c 2h]
+Seat 2: Miller L (small blind) folded before Flop
+Seat 3: Amelie R (big blind) showed [4d Qc] and lost with One Pair: Sixes
+Seat 4: Grayson Z folded before Flop
+Seat 5: StaticShak folded before Flop
+Seat 6: Saint Y (button) showed [9c 2c] and won $0.24 with Two Pair: Sixes and Twos
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327380: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:48 EDT
+Table ID '111936' 6-Max Seat #2 is the button
+Seat 2: Miller L ($36.56 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.88 in chips)
+Seat 5: StaticShak ($15.25 in chips) [hero]
+Seat 6: Saint Y ($10.23 in chips)
+Amelie R: posts small blind $0.05
+Grayson Z: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Kh 6c]
+StaticShak: calls $0.10
+Saint Y: calls $0.10
+Miller L: raises $1.00 to $1.10
+Amelie R: folds 
+Grayson Z: folds 
+StaticShak: calls $1.00
+Saint Y: calls $1.00
+*** FLOP *** [4h 8h Ks]
+StaticShak: bets $1.09
+Saint Y: folds 
+Miller L: raises $2.73 to $3.82
+StaticShak: calls $2.73
+*** TURN *** [4h 8h Ks] [Qd]
+StaticShak: bets $3.50
+Miller L: folds 
+Uncalled bet ($3.50) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $10.51 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $11.09 | Rake $0.58
+Board [4h 8h Ks Qd]
+Seat 2: Miller L (button) folded on the Turn
+Seat 3: Amelie R (small blind) folded before Flop
+Seat 4: Grayson Z (big blind) folded before Flop
+Seat 5: StaticShak mucked [Kh 6c] and won $10.51
+Seat 6: Saint Y folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327422: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:49 EDT
+Table ID '111936' 6-Max Seat #3 is the button
+Seat 2: Miller L ($31.64 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.78 in chips)
+Seat 5: StaticShak ($20.84 in chips) [hero]
+Seat 6: Saint Y ($9.13 in chips)
+Grayson Z: posts small blind $0.05
+StaticShak: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [Tc 4c]
+Saint Y: calls $0.10
+Miller L: folds 
+Amelie R: folds 
+Grayson Z: calls $0.05
+StaticShak: checks 
+*** FLOP *** [Kc 8c Ac]
+Grayson Z: checks 
+StaticShak: bets $0.19
+Saint Y: folds 
+Grayson Z: folds 
+Uncalled bet ($0.19) returned to StaticShak
+*** SHOWDOWN ***
+StaticShak collected $0.28 from pot
+StaticShak mucks hand
+*** SUMMARY ***
+Total pot $0.30 | Rake $0.02
+Board [Kc 8c Ac]
+Seat 2: Miller L folded before Flop
+Seat 3: Amelie R (button) folded before Flop
+Seat 4: Grayson Z (small blind) folded on the Flop
+Seat 5: StaticShak (big blind) mucked [Tc 4c] and won $0.28
+Seat 6: Saint Y folded on the Flop
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327540: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:49 EDT
+Table ID '111936' 6-Max Seat #4 is the button
+Seat 2: Miller L ($31.64 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.68 in chips)
+Seat 5: StaticShak ($21.02 in chips) [hero]
+Seat 6: Saint Y ($9.03 in chips)
+StaticShak: posts small blind $0.05
+Saint Y: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to StaticShak [6h Kh]
+Dealt to Saint Y [4d 4c]
+Dealt to Miller L [Qs Jd]
+Miller L: raises $1.10 to $1.20
+Amelie R: folds 
+Grayson Z: folds 
+StaticShak: calls $1.15
+Saint Y: raises $1.10 to $2.30
+Miller L: calls $1.10
+StaticShak: calls $1.10
+*** FLOP *** [Ks 3h Ah]
+StaticShak: bets $4.36
+Saint Y: calls $4.36
+Miller L: calls $4.36
+*** TURN *** [Ks 3h Ah] [Jh]
+StaticShak: checks 
+Saint Y: checks 
+Miller L: bets $18.93
+StaticShak: calls $14.36 and is all-in
+Saint Y: calls $2.37 and is all-in
+Uncalled bet ($4.57) returned to Miller L
+*** RIVER *** [Ks 3h Ah Jh] [Td]
+*** SHOWDOWN ***
+StaticShak shows [6h Kh] for a Flush: Ace high
+Miller L shows [Qs Jd] for a Straight: Ace to Ten
+StaticShak collected $23.90 from side pot 1
+Saint Y shows [4d 4c] for One Pair: Fours
+StaticShak collected $25.67 from pot
+*** SUMMARY ***
+Total pot $51.07 | Main pot $27.09 | Side pot $23.98 | Rake $1.50
+Board [Ks 3h Ah Jh Td]
+Seat 2: Miller L showed [Qs Jd] and lost with a Straight: Ace to Ten
+Seat 3: Amelie R folded before Flop
+Seat 4: Grayson Z (button) folded before Flop
+Seat 5: StaticShak (small blind) showed [6h Kh] and won $49.57 with a Flush: Ace high
+Seat 6: Saint Y (big blind) showed [4d 4c] and lost with One Pair: Fours
+
+--------------------------------------------------------------------------------
+
+BetRivers Poker Hand #9327678: Hold'em No Limit ($0.05/$0.10) - 2025/07/08 16:51 EDT
+Table ID '111936' 6-Max Seat #5 is the button
+Seat 2: Miller L ($10.62 in chips)
+Seat 3: Amelie R ($10.00 in chips)
+Seat 4: Grayson Z ($11.68 in chips)
+Seat 5: StaticShak ($49.57 in chips) [hero]
+Miller L: posts small blind $0.05
+Amelie R: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to Miller L [Ac 8d]
+Dealt to Amelie R [8c Kc]
+Dealt to StaticShak [Ad 9h]
+Grayson Z: folds 
+StaticShak: calls $0.10
+Miller L: raises $1.00 to $1.10
+Amelie R: calls $1.00
+StaticShak: folds 
+*** FLOP *** [5c Js Jc]
+Miller L: checks 
+Amelie R: checks 
+*** TURN *** [5c Js Jc] [3d]
+Miller L: checks 
+Amelie R: checks 
+*** RIVER *** [5c Js Jc 3d] [8h]
+Miller L: bets $1.45
+Amelie R: calls $1.45
+*** SHOWDOWN ***
+Miller L shows [Ac 8d] for Two Pair: Jacks and Eights
+Miller L collected $4.93 from pot
+Amelie R mucks hand
+*** SUMMARY ***
+Total pot $5.20 | Rake $0.27
+Board [5c Js Jc 3d 8h]
+Seat 2: Miller L (small blind) showed [Ac 8d] and won $4.93 with Two Pair: Jacks and Eights
+Seat 3: Amelie R (big blind) mucked [8c Kc] and lost with Two Pair: Jacks and Eights
+Seat 4: Grayson Z folded before Flop
+Seat 5: StaticShak (button) folded before Flop
