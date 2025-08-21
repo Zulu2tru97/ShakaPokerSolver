@@ -346,7 +346,9 @@ function displayHands() {
         </div>
         <div><b>Board:</b> ${boardHtml}</div>
         <div><b>Actions:</b><br>${actionsHtml}</div>
-        <canvas id="pokerCanvas" width="1000" height="500" style="margin:20px 0; border:1px solid #ccc; background:#0b4c0b; display:block;"></canvas>
+        <div style="display:flex;justify-content:center;">
+            <canvas id="pokerCanvas" width="1000" height="500" style="margin:20px 0; border:1px solid #ccc; background:#0b4c0b;"></canvas>
+        </div>
         <div style="margin-top:10px; text-align:right; color:#888; font-size:13px;">Hand ${currentHandIndex+1} of ${pokerHands.length}</div>
         <button id="nextHandBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;margin-top:15px;" ${currentHandIndex >= pokerHands.length-1 ? 'disabled' : ''}>Next Hand</button>
         <button id="prevHandBtn" type="button" style="font-size:12px;padding:2px 8px;min-width:0;margin-top:15px; margin-left:10px;" ${currentHandIndex === 0 ? 'disabled' : ''}>Previous Hand</button>
@@ -365,6 +367,92 @@ function displayHands() {
 
     // Render poker table/cards on canvas
     renderPokerCanvas(hand, boardCards);
+
+    // Render player stats chart at the bottom
+    renderPlayerStatsChart();
+// Render player stats chart using Chart.js
+function renderPlayerStatsChart() {
+    // Remove old chart if exists
+    let chartDiv = document.getElementById('playerStatsChartDiv');
+    if (chartDiv) chartDiv.remove();
+    chartDiv = document.createElement('div');
+    chartDiv.id = 'playerStatsChartDiv';
+    chartDiv.style = 'margin:40px auto 0 auto; max-width:1100px; background:#222; padding:20px 10px 30px 10px; border-radius:12px;';
+    chartDiv.innerHTML = '<h3 style="color:#ffd700;text-align:center;margin-bottom:10px;">Player Stats</h3>' +
+        '<canvas id="playerStatsChart" width="1000" height="320"></canvas>';
+    document.body.appendChild(chartDiv);
+
+    // Prepare data
+    const names = Object.keys(playerStats);
+    if (!names.length) return;
+    const stats = names.map(n => playerStats[n]);
+    // VPIP, PFR, 3-bet, Fold to 3-bet, Fold to C-bet, Fold, Call, Raise
+    const labels = ['VPIP', 'PFR', '3-bet', 'Fold to 3-bet', 'Fold to C-bet', 'Fold', 'Call', 'Raise'];
+    const datasets = labels.map((label, i) => ({
+        label,
+        data: names.map(n => {
+            const s = playerStats[n];
+            switch (label) {
+                case 'VPIP': return s.vpip;
+                case 'PFR': return s.pfr;
+                case '3-bet': return s.threeBet;
+                case 'Fold to 3-bet': return s.foldToThreeBet;
+                case 'Fold to C-bet': return s.foldToCbet;
+                case 'Fold': return s.fold;
+                case 'Call': return s.call;
+                case 'Raise': return s.raise;
+                default: return 0;
+            }
+        }),
+        backgroundColor: getStatColor(label),
+    }));
+
+    // Load Chart.js if not present
+    if (typeof window.Chart === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+        script.onload = () => drawChart();
+        document.head.appendChild(script);
+    } else {
+        drawChart();
+    }
+
+    function drawChart() {
+        const ctx = document.getElementById('playerStatsChart').getContext('2d');
+        new window.Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: names,
+                datasets: datasets
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: { position: 'top', labels: { color: '#ffd700', font: { size: 13 } } },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff', font: { size: 13 } } },
+                    y: { beginAtZero: true, ticks: { color: '#fff', font: { size: 13 } } }
+                }
+            }
+        });
+    }
+}
+
+function getStatColor(label) {
+    switch (label) {
+        case 'VPIP': return 'rgba(0, 123, 255, 0.7)';
+        case 'PFR': return 'rgba(40, 167, 69, 0.7)';
+        case '3-bet': return 'rgba(255, 193, 7, 0.7)';
+        case 'Fold to 3-bet': return 'rgba(220, 53, 69, 0.7)';
+        case 'Fold to C-bet': return 'rgba(108, 117, 125, 0.7)';
+        case 'Fold': return 'rgba(255, 99, 132, 0.7)';
+        case 'Call': return 'rgba(23, 162, 184, 0.7)';
+        case 'Raise': return 'rgba(255, 206, 86, 0.7)';
+        default: return 'rgba(200,200,200,0.7)';
+    }
+}
  
 // Draw cards, board, and players on canvas
 function renderPokerCanvas(hand, boardCards) {
@@ -378,14 +466,14 @@ function renderPokerCanvas(hand, boardCards) {
     ctx.strokeStyle = '#fff';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.ellipse(350, 175, 320, 120, 0, 0, 2 * Math.PI);
+    ctx.ellipse(500, 250, 320, 120, 0, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.restore();
 
     // Draw board cards (center)
     const cardW = 32, cardH = 46;
-    const boardY = 140;
-    const boardStartX = 350 - (cardW * 2.5 + 5 * 2);
+    const boardY = 215;
+    const boardStartX = 500 - (cardW * 2.5 + 5 * 2);
     boardCards.forEach((card, i) => {
         drawCard(ctx, boardStartX + i * (cardW + 5), boardY, cardW, cardH, card);
     });
@@ -397,8 +485,8 @@ function renderPokerCanvas(hand, boardCards) {
     const radius = 320; // match ellipse x-radius for edge
     playerNames.forEach((name, idx) => {
         const angle = (Math.PI * 2 * idx) / n - Math.PI / 2;
-        const px = 350 + radius * Math.cos(angle);
-        const py = 175 + 120 * Math.sin(angle); // match ellipse y-radius for edge
+        const px = 500 + radius * Math.cos(angle);
+        const py = 250 + 120 * Math.sin(angle); // match ellipse y-radius for edge
         // Draw player name
         ctx.save();
         ctx.font = 'bold 15px Arial';
