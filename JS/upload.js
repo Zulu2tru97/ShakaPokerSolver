@@ -36,33 +36,41 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
             const handBlocks = text.split(/^-{5,}$/m).map(h => h.trim()).filter(Boolean);
             const hands = handBlocks.map(parseSingleHand);
 
+            // Calculate total number of streets played (same for all players)
+            let totalStreetsPlayed = 0;
+            const allStreets = ['preflop', 'flop', 'turn', 'river'];
+            hands.forEach(hand => {
+                allStreets.forEach(street => {
+                    const acts = hand.scriptedActions[street] || [];
+                    if (acts.length > 0) totalStreetsPlayed++;
+                });
+            });
             // Calculate stats for each hand
             hands.forEach(hand => {
-                // VPIP/PFR/3-bet/Fold to 3-bet/Fold to C-bet
                 const players = Object.keys(hand.players);
                 players.forEach(name => {
                     if (!playerStats[name]) {
                         playerStats[name] = {
                             vpip: 0, pfr: 0, threeBet: 0, foldToThreeBet: 0, foldToCbet: 0,
-                            fold: 0, call: 0, raise: 0, hands: 0
+                            fold: 0, call: 0, raise: 0, hands: 0, streetsPlayed: 0
                         };
                     }
                     playerStats[name].hands++;
+                    playerStats[name].streetsPlayed = totalStreetsPlayed;
                 });
-        // --- Fold/Call/Raise counts (all streets) ---
-        const allStreets = ['preflop', 'flop', 'turn', 'river'];
-        allStreets.forEach(street => {
-            const acts = hand.scriptedActions[street] || [];
-            acts.forEach(act => {
-                const m = act.match(/^([^:]+):\s*(.+)$/);
-                if (!m) return;
-                const player = m[1].trim();
-                const action = m[2].toLowerCase();
-                if (action.includes('fold')) playerStats[player].fold++;
-                if (action.includes('call')) playerStats[player].call++;
-                if (action.includes('raise') || action.includes('bet') || action.includes('all-in')) playerStats[player].raise++;
-            });
-        });
+                // --- Fold/Call/Raise counts (all streets) ---
+                allStreets.forEach(street => {
+                    const acts = hand.scriptedActions[street] || [];
+                    acts.forEach(act => {
+                        const m = act.match(/^([^:]+):\s*(.+)$/);
+                        if (!m) return;
+                        const player = m[1].trim();
+                        const action = m[2].toLowerCase();
+                        if (action.includes('fold')) playerStats[player].fold++;
+                        if (action.includes('call')) playerStats[player].call++;
+                        if (action.includes('raise') || action.includes('bet') || action.includes('all-in')) playerStats[player].raise++;
+                    });
+                });
 
                 // --- VPIP & PFR ---
                 // Preflop actions
@@ -368,76 +376,56 @@ function displayHands() {
     // Render poker table/cards on canvas
     renderPokerCanvas(hand, boardCards);
 
-    // Render player stats chart at the bottom
-    renderPlayerStatsChart();
+    // Render player stats spreadsheet at the bottom
+    renderPlayerStatsSpreadsheet();
 // Render player stats chart using Chart.js
-function renderPlayerStatsChart() {
-    // Remove old chart if exists
-    let chartDiv = document.getElementById('playerStatsChartDiv');
-    if (chartDiv) chartDiv.remove();
-    chartDiv = document.createElement('div');
-    chartDiv.id = 'playerStatsChartDiv';
-    chartDiv.style = 'margin:40px auto 0 auto; max-width:1100px; background:#222; padding:20px 10px 30px 10px; border-radius:12px;';
-    chartDiv.innerHTML = '<h3 style="color:#ffd700;text-align:center;margin-bottom:10px;">Player Stats</h3>' +
-        '<canvas id="playerStatsChart" width="1000" height="320"></canvas>';
-    document.body.appendChild(chartDiv);
 
-    // Prepare data
+function renderPlayerStatsSpreadsheet() {
+    // Remove old spreadsheet if exists
+    let statsDiv = document.getElementById('playerStatsSpreadsheetDiv');
+    if (statsDiv) statsDiv.remove();
+    statsDiv = document.createElement('div');
+    statsDiv.id = 'playerStatsSpreadsheetDiv';
+    statsDiv.style = 'margin:40px auto 0 auto; max-width:1100px; background:#222; padding:20px 10px 30px 10px; border-radius:12px;';
+    statsDiv.innerHTML = '<h3 style="color:#ffd700;text-align:center;margin-bottom:10px;">Player Stats</h3>';
+
     const names = Object.keys(playerStats);
     if (!names.length) return;
-    const stats = names.map(n => playerStats[n]);
-    // VPIP, PFR, 3-bet, Fold to 3-bet, Fold to C-bet, Fold, Call, Raise
-    const labels = ['VPIP', 'PFR', '3-bet', 'Fold to 3-bet', 'Fold to C-bet', 'Fold', 'Call', 'Raise'];
-    const datasets = labels.map((label, i) => ({
-        label,
-        data: names.map(n => {
-            const s = playerStats[n];
-            switch (label) {
-                case 'VPIP': return s.vpip;
-                case 'PFR': return s.pfr;
-                case '3-bet': return s.threeBet;
-                case 'Fold to 3-bet': return s.foldToThreeBet;
-                case 'Fold to C-bet': return s.foldToCbet;
-                case 'Fold': return s.fold;
-                case 'Call': return s.call;
-                case 'Raise': return s.raise;
-                default: return 0;
-            }
-        }),
-        backgroundColor: getStatColor(label),
-    }));
+    const statLabels = [
+        { key: 'vpip', label: 'VPIP' },
+        { key: 'pfr', label: 'PFR' },
+        { key: 'threeBet', label: '3-bet' },
+        { key: 'foldToThreeBet', label: 'Fold to 3-bet' },
+        { key: 'foldToCbet', label: 'Fold to C-bet' },
+        { key: 'fold', label: 'Fold' },
+        { key: 'call', label: 'Call' },
+        { key: 'raise', label: 'Raise' }
+    ];
+    // Use the same denominator for all players
+    const denominator = playerStats[names[0]].streetsPlayed || 1;
 
-    // Load Chart.js if not present
-    if (typeof window.Chart === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-        script.onload = () => drawChart();
-        document.head.appendChild(script);
-    } else {
-        drawChart();
-    }
-
-    function drawChart() {
-        const ctx = document.getElementById('playerStatsChart').getContext('2d');
-        new window.Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: names,
-                datasets: datasets
-            },
-            options: {
-                responsive: false,
-                plugins: {
-                    legend: { position: 'top', labels: { color: '#ffd700', font: { size: 13 } } },
-                    title: { display: false }
-                },
-                scales: {
-                    x: { ticks: { color: '#fff', font: { size: 13 } } },
-                    y: { beginAtZero: true, ticks: { color: '#fff', font: { size: 13 } } }
-                }
-            }
+    let table = '<table style="width:100%;border-collapse:collapse;background:#333;color:#fff;">';
+    // Header row
+    table += '<tr style="background:#444;"><th style="padding:6px 10px;border:1px solid #555;">Stat</th>';
+    names.forEach(name => {
+        table += `<th style="padding:6px 10px;border:1px solid #555;">${name}</th>`;
+    });
+    table += '</tr>';
+    // Stat rows
+    statLabels.forEach(stat => {
+        table += `<tr><td style="padding:6px 10px;border:1px solid #555;">${stat.label}</td>`;
+        names.forEach(name => {
+            const val = playerStats[name][stat.key];
+            const pct = denominator > 0 ? (val / denominator * 100).toFixed(1) : '0.0';
+            table += `<td style="padding:6px 10px;border:1px solid #555;">${val} <span style='color:#ffd700;'>(${pct}%)</span></td>`;
         });
-    }
+        table += '</tr>';
+    });
+    table += '</table>';
+    // Add denominator info
+    table += `<div style='color:#aaa;font-size:13px;margin-top:8px;'>Percentages use denominator: <b>${denominator}</b> (total number of streets played with actions, same for all players)</div>`;
+    statsDiv.innerHTML += table;
+    document.body.appendChild(statsDiv);
 }
 
 function getStatColor(label) {
@@ -487,22 +475,45 @@ function renderPokerCanvas(hand, boardCards) {
         const angle = (Math.PI * 2 * idx) / n - Math.PI / 2;
         const px = 500 + radius * Math.cos(angle);
         const py = 250 + 120 * Math.sin(angle); // match ellipse y-radius for edge
-        // Draw player name
+        // Draw player name with gold border and black background
         ctx.save();
         ctx.font = 'bold 15px Arial';
-        ctx.fillStyle = '#fff';
         ctx.textAlign = 'center';
-        ctx.fillText(name, px, py);
-        // Draw money
+        const text = name;
+        const metrics = ctx.measureText(text);
+        const padX = 12, padY = 8;
+        const boxW = metrics.width + padX * 2;
+        const boxH = 32;
+        // Black background
+        ctx.fillStyle = '#111';
+        ctx.fillRect(px - boxW/2, py - boxH/2, boxW, boxH);
+        // Gold border
+        ctx.strokeStyle = '#ffd700';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(px - boxW/2, py - boxH/2, boxW, boxH);
+        // Draw player name
+        ctx.fillStyle = '#fff';
+        ctx.fillText(text, px, py + 6);
+        // Draw money with gold border and black background
         ctx.font = '12px Arial';
+        const moneyText = '$' + (hand.players[name].money !== null ? hand.players[name].money : '?');
+        const moneyMetrics = ctx.measureText(moneyText);
+        const moneyBoxW = moneyMetrics.width + padX * 2;
+        const moneyBoxH = 22;
+        const moneyY = py + 20;
+        ctx.fillStyle = '#111';
+        ctx.fillRect(px - moneyBoxW/2, moneyY - moneyBoxH/2, moneyBoxW, moneyBoxH);
+        ctx.strokeStyle = '#ffd700';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(px - moneyBoxW/2, moneyY - moneyBoxH/2, moneyBoxW, moneyBoxH);
         ctx.fillStyle = '#ffd700';
-        ctx.fillText('$' + (hand.players[name].money !== null ? hand.players[name].money : '?'), px, py + 16);
+        ctx.fillText(moneyText, px, moneyY + 6);
         ctx.restore();
         // Draw player cards (if any)
         const cards = hand.players[name].cards;
         if (Array.isArray(cards)) {
             for (let c = 0; c < cards.length; c++) {
-                drawCard(ctx, px - cardW/2 + c * (cardW + 4) - (cards.length-1)*(cardW+4)/2, py + 22, cardW, cardH, cards[c]);
+                drawCard(ctx, px - cardW/2 + c * (cardW + 4) - (cards.length-1)*(cardW+4)/2, py + 32, cardW, cardH, cards[c]);
             }
         }
     });
