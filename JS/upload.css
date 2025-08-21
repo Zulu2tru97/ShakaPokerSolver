@@ -1,54 +1,69 @@
 /* upload.css - Styles for upload.html */
 
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #0a2342;
     margin: 0;
     padding: 0;
+    color: #fff;
 }
+
 
 .container {
     max-width: 500px;
     margin: 50px auto;
-    background: #fff;
+    background: #1b2845;
     padding: 30px 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #ffd200;
 }
+
 
 input[type="file"] {
     display: block;
     margin: 20px auto;
+    background: #fff;
+    color: #0a2342;
+    border: 1px solid #ffd200;
+    border-radius: 4px;
+    padding: 6px 10px;
 }
+
 
 button {
     display: block;
     width: 100%;
     padding: 10px;
-    background: #007bff;
-    color: #fff;
+    background: #ffd200;
+    color: #0a2342;
     border: none;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #0a2342;
+    color: #ffd200;
+    border: 1px solid #ffd200;
 }
+
 
 #output {
     margin-top: 20px;
     padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
+    background: #1b2845;
+    border: 1px solid #ffd200;
     border-radius: 4px;
     min-height: 40px;
-    color: #222;
+    color: #fff;
 }
