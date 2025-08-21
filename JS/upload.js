@@ -12,6 +12,9 @@ let currentHandIndex = 0;
 let currentStreetIndex = 0;
 const streetOrder = ['preflop', 'flop', 'turn', 'river', 'showdown'];
 
+// Player stats: { playerName: { vpip, pfr, threeBet, foldToThreeBet, foldToCbet, fold, call, raise, hands } }
+let playerStats = {};
+
 document.getElementById('fileInput').addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -27,9 +30,132 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
 });
 
         function parsePokerHands(text) {
+            // Reset stats
+            playerStats = {};
             // Split hands by the separator line (--- or similar)
             const handBlocks = text.split(/^-{5,}$/m).map(h => h.trim()).filter(Boolean);
             const hands = handBlocks.map(parseSingleHand);
+
+            // Calculate stats for each hand
+            hands.forEach(hand => {
+                // VPIP/PFR/3-bet/Fold to 3-bet/Fold to C-bet
+                const players = Object.keys(hand.players);
+                players.forEach(name => {
+                    if (!playerStats[name]) {
+                        playerStats[name] = {
+                            vpip: 0, pfr: 0, threeBet: 0, foldToThreeBet: 0, foldToCbet: 0,
+                            fold: 0, call: 0, raise: 0, hands: 0
+                        };
+                    }
+                    playerStats[name].hands++;
+                });
+        // --- Fold/Call/Raise counts (all streets) ---
+        const allStreets = ['preflop', 'flop', 'turn', 'river'];
+        allStreets.forEach(street => {
+            const acts = hand.scriptedActions[street] || [];
+            acts.forEach(act => {
+                const m = act.match(/^([^:]+):\s*(.+)$/);
+                if (!m) return;
+                const player = m[1].trim();
+                const action = m[2].toLowerCase();
+                if (action.includes('fold')) playerStats[player].fold++;
+                if (action.includes('call')) playerStats[player].call++;
+                if (action.includes('raise') || action.includes('bet') || action.includes('all-in')) playerStats[player].raise++;
+            });
+        });
+
+                // --- VPIP & PFR ---
+                // Preflop actions
+                const preflopActs = hand.scriptedActions.preflop || [];
+                const vpipPlayers = new Set();
+                const pfrPlayers = new Set();
+                const threeBetPlayers = new Set();
+                let lastRaiser = null;
+                preflopActs.forEach(act => {
+                    // Example: "Player1: calls $2", "Player2: raises to $6", "Player3: folds"
+                    const m = act.match(/^([^:]+):\s*(.+)$/);
+                    if (!m) return;
+                    const player = m[1].trim();
+                    const action = m[2].toLowerCase();
+                    if (action.includes('calls') || action.includes('raises') || action.includes('bets') || action.includes('all-in')) {
+                        vpipPlayers.add(player);
+                    }
+                    if (action.includes('raises') || action.includes('bets') || action.includes('all-in')) {
+                        if (lastRaiser !== null) {
+                            // This is a 3-bet if there was already a raiser
+                            threeBetPlayers.add(player);
+                        }
+                        if (lastRaiser === null) {
+                            pfrPlayers.add(player);
+                        }
+                        lastRaiser = player;
+                    }
+                });
+                vpipPlayers.forEach(p => playerStats[p].vpip++);
+                pfrPlayers.forEach(p => playerStats[p].pfr++);
+                threeBetPlayers.forEach(p => playerStats[p].threeBet++);
+
+                // --- Fold to 3-bet ---
+                // If a player raises, then another 3-bets, and the original raiser folds
+                if (threeBetPlayers.size > 0) {
+                    preflopActs.forEach((act, idx) => {
+                        const m = act.match(/^([^:]+):\s*(.+)$/);
+                        if (!m) return;
+                        const player = m[1].trim();
+                        const action = m[2].toLowerCase();
+                        if (action.includes('folds')) {
+                            // Look back for a 3-bet before this fold
+                            for (let j = idx - 1; j >= 0; j--) {
+                                const prev = preflopActs[j];
+                                if (!prev) continue;
+                                const pm = prev.match(/^([^:]+):\s*(.+)$/);
+                                if (!pm) continue;
+                                const prevPlayer = pm[1].trim();
+                                const prevAction = pm[2].toLowerCase();
+                                if (threeBetPlayers.has(prevPlayer) && prevPlayer !== player) {
+                                    playerStats[player].foldToThreeBet++;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // --- Fold to C-bet ---
+                // If a player folds to a bet/raise on the flop
+                const flopActs = hand.scriptedActions.flop || [];
+                const flopBettors = new Set();
+                flopActs.forEach(act => {
+                    const m = act.match(/^([^:]+):\s*(.+)$/);
+                    if (!m) return;
+                    const player = m[1].trim();
+                    const action = m[2].toLowerCase();
+                    if (action.includes('bets') || action.includes('raises') || action.includes('all-in')) {
+                        flopBettors.add(player);
+                    }
+                });
+                flopActs.forEach((act, idx) => {
+                    const m = act.match(/^([^:]+):\s*(.+)$/);
+                    if (!m) return;
+                    const player = m[1].trim();
+                    const action = m[2].toLowerCase();
+                    if (action.includes('folds')) {
+                        // Look back for a bet/raise before this fold
+                        for (let j = idx - 1; j >= 0; j--) {
+                            const prev = flopActs[j];
+                            if (!prev) continue;
+                            const pm = prev.match(/^([^:]+):\s*(.+)$/);
+                            if (!pm) continue;
+                            const prevPlayer = pm[1].trim();
+                            const prevAction = pm[2].toLowerCase();
+                            if (flopBettors.has(prevPlayer) && prevPlayer !== player) {
+                                playerStats[player].foldToCbet++;
+                                break;
+                            }
+                        }
+                    }
+                });
+            });
             return hands;
         }
 
