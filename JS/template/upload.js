@@ -293,6 +293,35 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 else if (inSummary) summaryLines.push(line.trim());
             });
 
+            // Calculate pot for this hand (sum of all bets, calls, raises, and all posts/blinds)
+            let pot = 0;
+            const allStreets = ['preflop', 'flop', 'turn', 'river'];
+            // Add all 'posts' lines from the header section (before *** HOLE CARDS ***)
+            const headerSection = handText.split(/\*\*\* HOLE CARDS \*\*\*/)[0];
+            if (headerSection) {
+                const postLines = headerSection.split('\n').filter(line => /posts/i.test(line));
+                postLines.forEach(line => {
+                    // Match posts (e.g. "Player: posts small blind $1", "Player: posts big blind $2", "Player: posts $5")
+                    const m = line.match(/: posts (small blind|big blind)? ?\$?([\d,.]+)/i);
+                    if (m) {
+                        let amt = parseFloat(m[2].replace(/,/g, ''));
+                        if (!isNaN(amt)) pot += amt;
+                    }
+                });
+            }
+            // Add all bets, calls, raises, all-ins (all streets)
+            allStreets.forEach(street => {
+                const acts = scriptedActions[street] || [];
+                acts.forEach(act => {
+                    // Match action and amount (e.g. "Player: calls $2", "Player: raises to $6", "Player: bets $10", "Player: all-in $20")
+                    const m = act.match(/: (calls|bets|raises to|all-in)([^\d]*)(\$?([\d,.]+))/i);
+                    if (m) {
+                        // m[4] is the numeric amount
+                        let amt = parseFloat(m[4].replace(/,/g, ''));
+                        if (!isNaN(amt)) pot += amt;
+                    }
+                });
+            });
             return {
                 handId,
                 gameType,
@@ -303,7 +332,8 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                 streets,
                 summary: summaryLines,
                 players, // new object: { playerName: { cards, money } }
-                scriptedActions // { preflop, flop, turn, river, showdown }
+                scriptedActions, // { preflop, flop, turn, river, showdown }
+                pot
             };
         }
 
@@ -449,32 +479,70 @@ function renderPokerCanvas(hand, boardCards) {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw table (oval)
+    // Draw table (oval, bigger)
     ctx.save();
     ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 5;
     ctx.beginPath();
-    ctx.ellipse(500, 250, 320, 120, 0, 0, 2 * Math.PI);
+    ctx.ellipse(500, 250, 400, 170, 0, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.restore();
 
-    // Draw board cards (center)
-    const cardW = 32, cardH = 46;
-    const boardY = 215;
+    // Draw pot as label and pile of chips in the center
+    const potAmount = hand.pot !== undefined ? hand.pot.toFixed(2) : '?';
+    // Draw chips pile
+    drawChipsPile(ctx, 500, 250, hand.pot);
+    // Draw pot label (smaller, below chips)
+    ctx.save();
+    ctx.font = 'bold 17px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#ffd700';
+    ctx.strokeStyle = '#222';
+    ctx.lineWidth = 2;
+    // Draw background rounded rect for pot label
+    const labelText = 'Pot: $' + potAmount;
+    const labelWidth = ctx.measureText(labelText).width + 24;
+    const labelHeight = 28;
+    const labelX = 500 - labelWidth/2;
+    const labelY = 250 + 38; // just below chips
+    ctx.beginPath();
+    ctx.moveTo(labelX + 8, labelY);
+    ctx.lineTo(labelX + labelWidth - 8, labelY);
+    ctx.quadraticCurveTo(labelX + labelWidth, labelY, labelX + labelWidth, labelY + 8);
+    ctx.lineTo(labelX + labelWidth, labelY + labelHeight - 8);
+    ctx.quadraticCurveTo(labelX + labelWidth, labelY + labelHeight, labelX + labelWidth - 8, labelY + labelHeight);
+    ctx.lineTo(labelX + 8, labelY + labelHeight);
+    ctx.quadraticCurveTo(labelX, labelY + labelHeight, labelX, labelY + labelHeight - 8);
+    ctx.lineTo(labelX, labelY + 8);
+    ctx.quadraticCurveTo(labelX, labelY, labelX + 8, labelY);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(0,0,0,0.85)';
+    ctx.fill();
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = '#ffd700';
+    ctx.fillText(labelText, 500, labelY + 19);
+    ctx.restore();
+
+    // Draw board cards (center, slightly lower)
+    const cardW = 38, cardH = 54;
+    const boardY = 250;
     const boardStartX = 500 - (cardW * 2.5 + 5 * 2);
     boardCards.forEach((card, i) => {
-        drawCard(ctx, boardStartX + i * (cardW + 5), boardY, cardW, cardH, card);
+        drawCard(ctx, boardStartX + i * (cardW + 7), boardY, cardW, cardH, card);
     });
 
-    // Draw players (around table, max 9)
+    // Draw players (around outside of table, max 9)
     const playerNames = Object.keys(hand.players);
     const n = playerNames.length;
-    // Move players to the edge of the board (table)
-    const radius = 320; // match ellipse x-radius for edge
+    // Move players to the outside of the board (table)
+    const radius = 430; // outside the ellipse x-radius
+    const yRadius = 200; // outside the ellipse y-radius
     playerNames.forEach((name, idx) => {
         const angle = (Math.PI * 2 * idx) / n - Math.PI / 2;
         const px = 500 + radius * Math.cos(angle);
-        const py = 250 + 120 * Math.sin(angle); // match ellipse y-radius for edge
+        const py = 250 + yRadius * Math.sin(angle);
         // Draw player name with gold border and black background
         ctx.save();
         ctx.font = 'bold 15px Arial';
@@ -517,6 +585,48 @@ function renderPokerCanvas(hand, boardCards) {
             }
         }
     });
+}
+
+// Draw a pile of poker chips at (cx, cy) representing the pot amount
+function drawChipsPile(ctx, cx, cy, pot) {
+    // Determine number of chips (max 8 for visual, scale by pot)
+    let n = 3;
+    if (pot > 0) {
+        if (pot < 2) n = 3;
+        else if (pot < 10) n = 5;
+        else if (pot < 50) n = 7;
+        else n = 8;
+    }
+    const chipColors = ['#e74c3c', '#2980b9', '#27ae60', '#f1c40f', '#8e44ad', '#fff', '#e67e22', '#2c3e50'];
+    for (let i = 0; i < n; i++) {
+        const angle = Math.PI * 2 * i / n;
+        const r = 22 + (i % 2) * 6;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * 8;
+        ctx.save();
+        ctx.beginPath();
+        ctx.ellipse(x, y, 22, 8, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = chipColors[i % chipColors.length];
+        ctx.globalAlpha = 0.92;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#222';
+        ctx.stroke();
+        ctx.restore();
+    }
+    // Draw a top chip
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, 24, 10, 0, 0, 2 * Math.PI);
+    ctx.fillStyle = '#fff';
+    ctx.globalAlpha = 0.98;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = '#ffd700';
+    ctx.stroke();
+    ctx.restore();
 }
 
 // Draw a single card (simple rectangle with rank/suit)
